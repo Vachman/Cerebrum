@@ -1,0 +1,4 @@
+ tn = Net::Telnet.new('Host'=>'192.168.131.151', 'Port'=>23 ,'Telnetmode'=> false ,'Prompt' => /[$%#>]/n)
+
+10384
+499 9866234

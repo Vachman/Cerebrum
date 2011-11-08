@@ -59,4 +59,6 @@ Cerebrum::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.assets.precompile += ['admin.js', 'admin.css', 'swfObject.js']
 end

@@ -27,6 +27,10 @@ gem 'pry-rails', :group => :development
 gem 'growl', :group => [:test, :development]
 gem "rspec-rails", :group => [:test, :development]
 
+group :production do
+  gem 'therubyracer'
+end
+
 group :test do
   gem 'turn', :require => false
   gem "factory_girl_rails"

@@ -1,40 +1,76 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Для работы rvm
+require 'rvm/capistrano' # Для работы rvm
+require 'bundler/capistrano' # Для работы bundler.
 
-set :scm, :none
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :application, "cerebrum"
+set :rails_env, "production"
+set :deploy_to, "/srv/#{application}"
+set :nginx_path, "/usr/local/nginx"
+set :use_sudo, false
+set :hostname, "heelpme"
 
-role :bridge, '89.255.93.158:222'
-role :nagios, 'nagios.obltelecom.ru:222'                       # Your HTTP server, Apache/etc
-set :user, 'v.gevorkyan'
-set :password, 'Xr03Ba4z'
-set :use_sudo, true 
+default_run_options[:pty] = true 
+set :repository, "git@github.com:Vachman/Cerebrum.git"  
+set :branch, "master"
+set :scm, "git"
+set :user, "vachman"  # The server's user for deploys
+set :scm_passphrase, "xarakiri"  # The deploy user's password
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+set :rvm_ruby_string, '1.9.2' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
+set :rvm_type, :user # Указывает на то, что мы будем использовать rvm, установленный у пользователя, от которого происходит деплой, а не системный rvm.
 
-namespace :nagios do
-  task :default do
-    puts "You must type: cap nagios:add -s host= -s location= -s parent_sw="  
-  end
-  
-  desc "Add Host To Nagios"
-  task :add, :roles => :nagios do
-  end
+
+role :web, "v.gevorkyan@89.255.64.49"                           # Your HTTP server, Apache/etc
+role :app, "v.gevorkyan@89.255.64.49"                           # This may be the same as your `Web` server
+role :db,  "v.gevorkyan@89.255.64.49", :primary => true         # This is where Rails migrations will run
+
+set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
+set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
+
+
+after 'deploy:update_code', :roles => :app do
+  run "rm -f #{current_release}/config/database.yml"
+  run "ln -s #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
 end
 
-namespace :net do
-  task :default do
+
+# Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
+# В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn
+namespace :deploy do
+  task :restart do
+    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current/ && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
-  
-  desc "Scan net for 10.90.90.90"
-  task :scan, :roles => :bridge do
+  task :start do
+    run "cd #{deploy_to}/current/ && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
+  end
+  task :stop do
+    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
+  end
+  task :config_nginx do
+    vhost_template = "
+    upstream #{application}.heelp.me_server {
+      server unix:/srv/#{application}/shared/unicorn.sock fail_timeout=0;
+    }
+    server {
+        listen #{application}.heelp.me:80;
+        client_max_body_size 1G;
+        server_name #{application}.heelp.me;
+        keepalive_timeout 5;
+        root /srv/#{application}/current/public;
+        try_files $uri/index.html $uri.html $uri @#{application}.heelp.me;
+        location @#{application}.heelp.me {
+            proxy_pass http://#{application}.heelp.me_server;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+        }
+        error_page 500 502 503 504 /500.html;
+        location = /500.html {
+          root /srv/#{application}/current/public;
+        }
+    }"
     
+    run "echo '#{vhost_template}' > #{deploy_to}/shared/config/#{application}.#{hostname}.vhost"
+    sudo "ln -s #{deploy_to}/shared/config/#{application}.#{hostname}.vhost #{nginx_path}/conf/vhosts/#{application}.#{hostname}.vhost"
   end
 end

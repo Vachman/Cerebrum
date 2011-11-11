@@ -8,7 +8,7 @@ old_pid    = pid_file + '.oldbin'
 
 
 timeout 30
-worker_processes 4 # Здесь тоже в зависимости от нагрузки, погодных условий и текущей фазы луны
+worker_processes 1 # Здесь тоже в зависимости от нагрузки, погодных условий и текущей фазы луны
 listen socket_file, :backlog => 1024
 pid pid_file
 stderr_path err_log

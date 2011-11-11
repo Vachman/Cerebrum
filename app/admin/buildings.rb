@@ -17,7 +17,11 @@ ActiveAdmin.register Building do
   end
   
   show do
-  end
-  
+    panel "Подробности" do
+      attributes_table_for building do
+        row("Дом") { building.name }
+      end
+    end
+  end  
   
 end

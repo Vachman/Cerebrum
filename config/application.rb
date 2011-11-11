@@ -40,6 +40,7 @@ module Cerebrum
     config.filter_parameters += [:password]
 
     # Enable the asset pipeline
+    I18n.default_locale = :ru
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets

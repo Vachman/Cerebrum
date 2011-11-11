@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.0</version>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:42:52.845Z" timestamp="2011-11-11T09:42:52.845Z">
+    <change idref="t1" from="t-1" from-position="0" resolved="yes">
+      <change idref="t1" attribute="title" type="string" to="Task 1"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:46:55.928Z" timestamp="2011-11-11T09:46:55.928Z">
+    <change idref="t4" to="t-1" to-position="0" resolved="yes">
+      <change idref="t4" attribute="effort" type="real" from="28800" to="0"/>
+      <change idref="t4" attribute="isSplittableTask" type="real" from="1" to="0"/>
+      <change idref="t4" attribute="taskType" type="real" from="0" to="1"/>
+      <change idref="t4" attribute="title" type="string" to="Start"/>
+    </change>
+    <change idref="t5" to="t-1" to-position="1" resolved="yes">
+      <change idref="t5" attribute="effort" type="real" from="28800" to="3600"/>
+      <change idref="t5" attribute="title" type="string" to=" Разработать план работ"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:49:03.842Z" timestamp="2011-11-11T09:49:03.842Z">
+    <change idref="t5" attribute="effort" type="real" from="3600" to="28800" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:53:32.527Z" timestamp="2011-11-11T09:53:32.527Z">
+    <change idref="t8" to="t-1" to-position="2" resolved="yes">
+      <change idref="t8" attribute="effort" type="real" from="28800" to="0"/>
+      <change idref="t8" attribute="isSplittableTask" type="real" from="1" to="0"/>
+      <change idref="t8" attribute="startConstraintDate" type="date" to="2011-11-21T04:00:00.000Z"/>
+      <change idref="t8" attribute="taskType" type="real" from="0" to="1"/>
+      <change idref="t8" attribute="title" type="string" to="Milestone 1"/>
+    </change>
+    <change idref="t5" attribute="title" type="string" from=" Разработать план работ" to=" Разработать план" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:56:05.061Z" timestamp="2011-11-11T09:56:05.061Z">
+    <change idref="t9" to="t-1" to-position="2" resolved="yes">
+      <change idref="t9" attribute="startConstraintDate" type="date" to="2011-11-14T04:00:00.000Z"/>
+      <change idref="t9" attribute="title" type="string" to="Task 1"/>
+    </change>
+    <change idref="t8" attribute="title" type="string" from="Milestone 1" to="Ввод в эксплуатацию" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:58:28.711Z" timestamp="2011-11-11T09:58:28.711Z">
+    <change idref="t10" to="t-1" to-position="3" resolved="yes">
+      <change idref="t10" attribute="effort" type="real" from="28800" to="7200"/>
+      <change idref="t10" attribute="startConstraintDate" type="date" to="2011-11-14T11:00:00.000Z"/>
+      <change idref="t10" attribute="title" type="string" to="Ввести пользователей"/>
+    </change>
+    <change idref="t11" to="t-1" to-position="5" resolved="yes">
+      <change idref="t11" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t11" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t11" attribute="title" type="string" to="Group 1"/>
+    </change>
+    <change idref="t9" attribute="title" type="string" from="Task 1" to="Настроить аутентифиацию" resolved="yes"/>
+    <change idref="t9" attribute="effort" type="real" from="28800" to="21600" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T10:00:44.664Z" timestamp="2011-11-11T10:00:44.664Z">
+    <change idref="t11" from="t-1" from-position="5" to="t-1" to-position="2" resolved="yes"/>
+    <change idref="t12" to="t-1" to-position="4" resolved="yes">
+      <change idref="t12" attribute="title" type="string" to="Task 1"/>
+    </change>
+    <change idref="t9" attribute="title" type="string" from="Настроить аутентифиацию" to="Прикрутить cancan" resolved="yes"/>
+    <change idref="t11" attribute="title" type="string" from="Group 1" to="Аутентификация" resolved="yes"/>
+    <change idref="t11" attribute="startConstraintDate" type="date" to="2011-11-14T05:00:00.000Z" resolved="yes"/>
+    <change idref="t9" from="t-1" from-position="2" to="t11" to-position="0" resolved="yes"/>
+    <change idref="t10" from="t-1" from-position="3" to="t11" to-position="1" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T10:03:41.619Z" timestamp="2011-11-11T10:03:41.619Z">
+    <change idref="t9" attribute="effort" type="real" from="21600" to="18000" resolved="yes"/>
+    <change idref="t10" attribute="startConstraintDate" type="date" from="2011-11-14T11:00:00.000Z" to="2011-11-14T10:00:00.000Z" resolved="yes"/>
+    <change idref="t10" attribute="effort" type="real" from="7200" to="3600" resolved="yes"/>
+    <change idref="t11" attribute="startConstraintDate" type="date" from="2011-11-14T05:00:00.000Z" to="2011-11-14T04:00:00.000Z" resolved="yes"/>
+    <change idref="t13" to="t11" to-position="2" resolved="yes">
+      <change idref="t13" attribute="effort" type="real" from="28800" to="7200"/>
+      <change idref="t13" attribute="startConstraintDate" type="date" to="2011-11-14T11:00:00.000Z"/>
+      <change idref="t13" attribute="title" type="string" to="Разграничить права"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T10:10:26.572Z" timestamp="2011-11-11T10:10:26.572Z">
+    <change idref="t12" from="t-1" from-position="4" to="t-1" to-position="3" resolved="yes"/>
+    <change idref="t9" attribute="title" type="string" from="Прикрутить cancan" to="Прикрутить плагин cancan" resolved="yes"/>
+    <change idref="t12" attribute="title" type="string" from="Task 1" to="Создать модель портов " resolved="yes"/>
+    <change idref="t12" attribute="effort" type="real" from="28800" to="7200" resolved="yes"/>
+    <change idref="t12" attribute="startConstraintDate" type="date" to="2011-11-15T05:00:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T10:12:44.252Z" timestamp="2011-11-11T10:12:44.252Z">
+    <change idref="t17" to="t-1" to-position="4" resolved="yes">
+      <change idref="t17" attribute="title" type="string" to="Task 1"/>
+    </change>
+    <change idref="t12" attribute="title" type="string" from="Создать модель портов " to="Создать модель порта " resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T10:15:26.965Z" timestamp="2011-11-11T10:15:26.965Z">
+    <change idref="t17" attribute="title" type="string" from="Task 1" to="Привязать свичи к друг другу " resolved="yes"/>
+    <change idref="t17" attribute="effort" type="real" from="28800" to="18000" resolved="yes"/>
+    <change idref="t17" attribute="startConstraintDate" type="date" to="2011-11-15T07:00:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T11:50:13.726Z" timestamp="2011-11-11T11:50:13.726Z">
+    <change idref="t17" attribute="notesAllowingNil" type="textdata" to="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibH0Ke1xjb2xvcnRibDtccmVkMjU1XGdyZWVuMjU1XGJsdWUyNTU7fQp9" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T11:56:09.086Z" timestamp="2011-11-11T11:56:09.086Z">
+    <change idref="t17" attribute="notesAllowingNil" type="textdata" from="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDUzIFx1MTA3MiBcdTEwODcgXHUxMDgwIFx1MTA4OSBcdTEwNzIgXHUxMDkwIFx1MTEwMCAgXHUxMDg5IFx1MTA4MiBcdTEwODggXHUxMDgwIFx1MTA4NyBcdTEwOTAgIFx1MTA4MiBcdTEwODYgXHUxMDkwIFx1MTA4NiBcdTEwODggXHUxMDk5IFx1MTA4MSAgXHUxMDg1IFx1MTA3MiAgXHUxMDg2IFx1MTA4OSBcdTEwODUgXHUxMDg2IFx1MTA3NCBcdTEwNzcgIFx1MTA3NiBcdTEwNzIgXHUxMDg1IFx1MTA4NSBcdTEwOTkgXHUxMDkzICBcdTEwODAgXHUxMDc5ICBuYWdpb3MgXHUxMDgwICBcdTEwODcgXHUxMDg4IFx1MTA4MCBcdTEwODkgXHUxMDg2IFx1MTA3NyBcdTEwNzYgXHUxMDgwIFx1MTA4NSBcdTEwODAgXHUxMDkwICBcdTEwODkgXHUxMDc0IFx1MTA4MCBcdTEwOTUgXHUxMDgwICBcdTEwODIgIFx1MTA3NiBcdTEwODggXHUxMDkxIFx1MTA3NSAgXHUxMDc2IFx1MTA4OCBcdTEwOTEgXHUxMDc1IFx1MTA5MSAgICB9" to="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibH0Ke1xjb2xvcnRibDtccmVkMjU1XGdyZWVuMjU1XGJsdWUyNTU7fQp9" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T11:58:36.951Z" timestamp="2011-11-11T11:58:36.951Z">
+    <change idref="t18" to="t-1" to-position="5" resolved="yes">
+      <change idref="t18" attribute="title" type="string" to="Task 1"/>
+    </change>
+    <change idref="t17" attribute="notesAllowingNil" type="textdata" from="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDUzIFx1MTA3MiBcdTEwODcgXHUxMDgwIFx1MTA4OSBcdTEwNzIgXHUxMDkwIFx1MTEwMCAgXHUxMDg5IFx1MTA4MiBcdTEwODggXHUxMDgwIFx1MTA4NyBcdTEwOTAgIFx1MTA4MiBcdTEwODYgXHUxMDkwIFx1MTA4NiBcdTEwODggXHUxMDk5IFx1MTA4MSAgXHUxMDg1IFx1MTA3MiAgXHUxMDg2IFx1MTA4OSBcdTEwODUgXHUxMDg2IFx1MTA3NCBcdTEwNzcgIFx1MTA3NiBcdTEwNzIgXHUxMDg1IFx1MTA4NSBcdTEwOTkgXHUxMDkzICBcdTEwODAgXHUxMDc5ICBuYWdpb3MgXHUxMDgwICBcdTEwODcgXHUxMDg4IFx1MTA4MCBcdTEwODkgXHUxMDg2IFx1MTA3NyBcdTEwNzYgXHUxMDgwIFx1MTA4NSBcdTEwODAgXHUxMDkwICBcdTEwODkgXHUxMDc0IFx1MTA4MCBcdTEwOTUgXHUxMDgwICBcdTEwODIgIFx1MTA3NiBcdTEwODggXHUxMDkxIFx1MTA3NSAgXHUxMDc2IFx1MTA4OCBcdTEwOTEgXHUxMDc1IFx1MTA5MSB9" resolved="yes"/>
+    <change idref="t17" attribute="title" type="string" from="Привязать свичи к друг другу " to="Написать в модели свича функции автозаполнения мак-адреса и локации " resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T12:01:53.006Z" timestamp="2011-11-11T12:01:53.006Z">
+    <change idref="t19" to="t-1" to-position="2" resolved="yes">
+      <change idref="t19" attribute="notesAllowingNil" type="textdata" to="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDU5IFx1MTA4MyBcdTEwODAgXHUxMDk0IFx1MTA3MiAsIFx1MTA0NCBcdTEwODYgXHUxMDg0ICwgXHUxMDU1IFx1MTA4NiBcdTEwNzYgXHUxMDk4IFx1MTA3NyBcdTEwNzkgXHUxMDc2ICB9"/>
+      <change idref="t19" attribute="startConstraintDate" type="date" to="2011-11-14T04:00:00.000Z"/>
+      <change idref="t19" attribute="title" type="string" to="Создать тадлици локаций"/>
+    </change>
+    <change idref="t11" attribute="startConstraintDate" type="date" from="2011-11-14T04:00:00.000Z" to="2011-11-15T04:00:00.000Z" resolved="yes"/>
+    <change idref="t12" attribute="startConstraintDate" type="date" from="2011-11-15T05:00:00.000Z" to="2011-11-15T10:00:00.000Z" resolved="yes"/>
+    <change idref="t17" attribute="startConstraintDate" type="date" from="2011-11-15T07:00:00.000Z" to="2011-11-15T12:00:00.000Z" resolved="yes"/>
+    <change idref="t18" attribute="title" type="string" from="Task 1" to="Привязать порты к свичам и проектировать работу" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T12:05:48.969Z" timestamp="2011-11-11T12:05:48.969Z">
+    <change idref="t19" attribute="notesAllowingNil" type="textdata" from="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDU5IFx1MTA4MyBcdTEwODAgXHUxMDk0IFx1MTA3MiAsIFx1MTA0NCBcdTEwODYgXHUxMDg0ICwgXHUxMDU1IFx1MTA4NiBcdTEwNzYgXHUxMDk4IFx1MTA3NyBcdTEwNzkgXHUxMDc2ICwgXHUxMDY5IFx1MTA5MCBcdTEwNzIgXHUxMDc4IFwKIH0=" to="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDU5IFx1MTA4MyBcdTEwODAgXHUxMDk0IFx1MTA3MiAsIFx1MTA0NCBcdTEwODYgXHUxMDg0ICwgXHUxMDU1IFx1MTA4NiBcdTEwNzYgXHUxMDk4IFx1MTA3NyBcdTEwNzkgXHUxMDc2ICB9" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T12:17:07.451Z" timestamp="2011-11-11T12:17:07.451Z">
+    <change idref="t22" to="t-1" to-position="3" resolved="yes">
+      <change idref="t22" attribute="title" type="string" to="Task 1"/>
+    </change>
+    <change idref="t19" attribute="notesAllowingNil" type="textdata" from="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDU5IFx1MTA4MyBcdTEwODAgXHUxMDk0IFx1MTA3MiAsIFx1MTA0NCBcdTEwODYgXHUxMDg0ICwgXHUxMDU1IFx1MTA4NiBcdTEwNzYgXHUxMDk4IFx1MTA3NyBcdTEwNzkgXHUxMDc2ICwgIH0=" to="e1xydGYxXGFuc2lcYW5zaWNwZzEyNTFcY29jb2FydGYxMTM4XGNvY29hc3VicnRmMjMwCntcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJzZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVlMjU1O1xyZWQ4NVxncmVlbjg1XGJsdWU4NTt9ClxwYXJkXHR4NTYwXHR4MTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0eDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbAoKXGYwXGZzMjIgXGNmMiBcdXAwIFxub3N1cGVyc3ViIFx1bG5vbmUgXG9ibGlxdWVuZXNzMCBcZXhwYW5zaW9uMCBcdWMwXHUxMDU5IFx1MTA4MyBcdTEwODAgXHUxMDk0IFx1MTA3MiAsIFx1MTA0NCBcdTEwODYgXHUxMDg0ICwgXHUxMDU1IFx1MTA4NiBcdTEwNzYgXHUxMDk4IFx1MTA3NyBcdTEwNzkgXHUxMDc2ICB9" resolved="yes"/>
+    <change idref="t19" attribute="title" type="string" from="Создать тадлици локаций" to="Создать тадлицу локаций" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T13:20:50.680Z" timestamp="2011-11-11T13:20:50.680Z">
+    <change idref="t22" attribute="title" type="string" from="Task 1" to="Создать промежуточную таблицу порт + клиент в котором будет указана квартира и этаж " resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T13:27:37.511Z" timestamp="2011-11-11T13:27:37.511Z">
+    <change idref="t26" to="t-1" to-position="2" resolved="yes">
+      <change idref="t26" attribute="effort" type="real" from="28800" to="7200"/>
+      <change idref="t26" attribute="title" type="string" to="Cоздать модель клиентов"/>
+    </change>
+    <change idref="t12" from="t-1" from-position="6" to="t-1" to-position="4" resolved="yes"/>
+    <change idref="t19" attribute="title" type="string" from="Создать тадлицу локаций" to="Создать таблицу локаций" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T13:29:50.794Z" timestamp="2011-11-11T13:29:50.794Z">
+    <change idref="t19" attribute="effort" type="real" from="28800" to="7200" resolved="yes"/>
+  </task-change-set>
+  <resource-change-set user="Вачаган Геворкян" date="2011-11-11T09:37:03.631Z" timestamp="2011-11-11T09:37:03.631Z">
+    <change idref="r1" attribute="name" type="string" from="Resource 1" to="Вач" resolved="yes"/>
+  </resource-change-set>
+  <resource-change-set user="Вачаган Геворкян" date="2011-11-11T09:46:55.927Z" timestamp="2011-11-11T09:46:55.927Z">
+    <change idref="r1" attribute="styleDict" type="dict" to="{
+    &quot;font-size&quot; = 11;
+}" resolved="yes"/>
+  </resource-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T08:35:03.910Z" timestamp="2011-11-11T08:35:03.910Z">
+    <change idref="m1" attribute="fixedDate" type="date" to="2011-11-11T04:00:00.000Z" resolved="yes"/>
+  </metadata-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T08:37:44.668Z" timestamp="2011-11-11T08:37:44.668Z">
+    <change idref="m1" attribute="projectTitle" type="string" to="Cerebrum" resolved="yes"/>
+  </metadata-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T09:39:32.303Z" timestamp="2011-11-11T09:39:32.303Z">
+    <change idref="m1" attribute="scheduleGranularity" type="real" from="0" to="2" resolved="yes"/>
+  </metadata-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T09:51:25.614Z" timestamp="2011-11-11T09:51:25.614Z">
+    <change idref="m1" attribute="scheduleGranularity" type="real" from="2" to="1" resolved="yes"/>
+  </metadata-change-set>
+</changelog>

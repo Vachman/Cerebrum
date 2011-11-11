@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.0</version>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:42:52.845Z" timestamp="2011-11-11T09:42:52.845Z">
+    <change idref="t1" from="t-1" from-position="0" resolved="yes">
+      <change idref="t1" attribute="title" type="string" to="Task 1"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:46:55.928Z" timestamp="2011-11-11T09:46:55.928Z">
+    <change idref="t4" to="t-1" to-position="0" resolved="yes">
+      <change idref="t4" attribute="effort" type="real" from="28800" to="0"/>
+      <change idref="t4" attribute="isSplittableTask" type="real" from="1" to="0"/>
+      <change idref="t4" attribute="taskType" type="real" from="0" to="1"/>
+      <change idref="t4" attribute="title" type="string" to="Start"/>
+    </change>
+    <change idref="t5" to="t-1" to-position="1" resolved="yes">
+      <change idref="t5" attribute="effort" type="real" from="28800" to="3600"/>
+      <change idref="t5" attribute="title" type="string" to=" Разработать план работ"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Вачаган Геворкян" date="2011-11-11T09:49:03.842Z" timestamp="2011-11-11T09:49:03.842Z">
+    <change idref="t5" attribute="effort" type="real" from="3600" to="28800" resolved="yes"/>
+  </task-change-set>
+  <resource-change-set user="Вачаган Геворкян" date="2011-11-11T09:37:03.631Z" timestamp="2011-11-11T09:37:03.631Z">
+    <change idref="r1" attribute="name" type="string" from="Resource 1" to="Вач" resolved="yes"/>
+  </resource-change-set>
+  <resource-change-set user="Вачаган Геворкян" date="2011-11-11T09:46:55.927Z" timestamp="2011-11-11T09:46:55.927Z">
+    <change idref="r1" attribute="styleDict" type="dict" to="{
+    &quot;font-size&quot; = 11;
+}" resolved="yes"/>
+  </resource-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T08:35:03.910Z" timestamp="2011-11-11T08:35:03.910Z">
+    <change idref="m1" attribute="fixedDate" type="date" to="2011-11-11T04:00:00.000Z" resolved="yes"/>
+  </metadata-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T08:37:44.668Z" timestamp="2011-11-11T08:37:44.668Z">
+    <change idref="m1" attribute="projectTitle" type="string" to="Cerebrum" resolved="yes"/>
+  </metadata-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T09:39:32.303Z" timestamp="2011-11-11T09:39:32.303Z">
+    <change idref="m1" attribute="scheduleGranularity" type="real" from="0" to="2" resolved="yes"/>
+  </metadata-change-set>
+  <metadata-change-set user="Вачаган Геворкян" date="2011-11-11T09:51:25.614Z" timestamp="2011-11-11T09:51:25.614Z">
+    <change idref="m1" attribute="scheduleGranularity" type="real" from="2" to="1" resolved="yes"/>
+  </metadata-change-set>
+</changelog>

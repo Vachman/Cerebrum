@@ -63,14 +63,86 @@
     <type>group</type>
     <child-task idref="t4"/>
     <child-task idref="t5"/>
+    <child-task idref="t26"/>
+    <child-task idref="t19"/>
+    <child-task idref="t12"/>
+    <child-task idref="t22"/>
+    <child-task idref="t11"/>
+    <child-task idref="t17"/>
+    <child-task idref="t18"/>
+    <child-task idref="t8"/>
   </task>
   <task id="t4">
     <title>Start</title>
     <type>milestone</type>
   </task>
   <task id="t5">
-    <title> Разработать план работ</title>
+    <title> Разработать план</title>
     <effort>28800</effort>
+  </task>
+  <task id="t8">
+    <title>Ввод в эксплуатацию</title>
+    <type>milestone</type>
+    <start-constraint-date>2011-11-21T04:00:00.000Z</start-constraint-date>
+  </task>
+  <task id="t9">
+    <title>Прикрутить плагин cancan</title>
+    <effort>18000</effort>
+    <start-constraint-date>2011-11-14T04:00:00.000Z</start-constraint-date>
+  </task>
+  <task id="t10">
+    <title>Ввести пользователей</title>
+    <effort>3600</effort>
+    <start-constraint-date>2011-11-14T10:00:00.000Z</start-constraint-date>
+  </task>
+  <task id="t11">
+    <title>Аутентификация</title>
+    <type>group</type>
+    <start-constraint-date>2011-11-15T04:00:00.000Z</start-constraint-date>
+    <child-task idref="t9"/>
+    <child-task idref="t10"/>
+    <child-task idref="t13"/>
+  </task>
+  <task id="t12">
+    <title>Создать модель порта </title>
+    <effort>7200</effort>
+    <start-constraint-date>2011-11-15T10:00:00.000Z</start-constraint-date>
+  </task>
+  <task id="t13">
+    <title>Разграничить права</title>
+    <effort>7200</effort>
+    <start-constraint-date>2011-11-14T11:00:00.000Z</start-constraint-date>
+  </task>
+  <task id="t17">
+    <title>Написать в модели свича функции автозаполнения мак-адреса и локации </title>
+    <effort>18000</effort>
+    <start-constraint-date>2011-11-15T12:00:00.000Z</start-constraint-date>
+  </task>
+  <task id="t18">
+    <title>Привязать порты к свичам и проектировать работу</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t19">
+    <title>Создать таблицу локаций</title>
+    <effort>7200</effort>
+    <start-constraint-date>2011-11-14T04:00:00.000Z</start-constraint-date>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>Улица, Дом, Подъезд </lit>
+          </run>
+        </p>
+      </text>
+    </note>
+  </task>
+  <task id="t22">
+    <title>Создать промежуточную таблицу порт + клиент в котором будет указана квартира и этаж </title>
+    <effort>28800</effort>
+  </task>
+  <task id="t26">
+    <title>Cоздать модель клиентов</title>
+    <effort>7200</effort>
   </task>
   <critical-path root="-1" enabled="false">
     <color r="1" g="0.5" b="0.5"/>

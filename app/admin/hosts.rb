@@ -1,5 +1,6 @@
+# encoding: utf-8
 ActiveAdmin.register Host do
-  menu :label => "Equipment", :priority => 3
+  menu :label =>  "Оборудование"  
   
   index do
       column :hostname

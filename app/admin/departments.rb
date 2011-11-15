@@ -1,3 +1,4 @@
+# encoding: utf-8
 ActiveAdmin.register Department do
-  menu :parent => "Employees"
+  menu :label =>  "Отделы", :parent => "Сотрудники"
 end

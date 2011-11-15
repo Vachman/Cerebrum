@@ -1,5 +1,6 @@
+# encoding: utf-8
 ActiveAdmin.register Client do
-  menu :priority => 2
+  menu :label => "Клиенты"
   
   scope :all, :default => true
   scope :companys

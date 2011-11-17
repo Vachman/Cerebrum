@@ -1,5 +1,6 @@
 # encoding: utf-8
 ActiveAdmin.register AdminUser do
+  menu false
   index do
     column :email
     column :current_sign_in_at

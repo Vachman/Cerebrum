@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>../lib/show.rb</string>
+	<string>sql/cerebrum_development_hosts.sql</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,28 +21,28 @@
 	<integer>201</integer>
 	<key>metaData</key>
 	<dict>
-		<key>../app/admin/buildings.rb</key>
+		<key>../Gemfile</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>32</integer>
+				<integer>16</integer>
 				<key>line</key>
-				<integer>1</integer>
+				<integer>25</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../app/admin/clients.rb</key>
+		<key>../app/admin/admin_users.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>30</integer>
+				<integer>12</integer>
 				<key>line</key>
-				<integer>1</integer>
+				<integer>2</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -54,7 +54,51 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>7</integer>
+				<integer>13</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>4</integer>
+				<key>line</key>
+				<integer>22</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>13</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
+		</dict>
+		<key>../app/admin/hosts.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../app/admin/housings.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
 				<key>line</key>
 				<integer>2</integer>
 			</dict>
@@ -63,49 +107,21 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../config/initializers/active_admin.rb</key>
+		<key>../app/models/admin_user.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>21</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>105</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>71</integer>
-		</dict>
-		<key>../config/locales/ru.yml</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
 				<integer>13</integer>
-				<key>line</key>
-				<integer>7</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../lib/breadcrumb_helper.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>64</integer>
-				<key>line</key>
-				<integer>21</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../lib/index.rb</key>
+		<key>../app/models/building.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -123,9 +139,9 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>17</integer>
 				<key>line</key>
-				<integer>10</integer>
+				<integer>0</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
@@ -135,28 +151,42 @@
 				<integer>0</integer>
 			</dict>
 		</dict>
-		<key>../lib/show.rb</key>
+		<key>../app/models/host.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>16</integer>
+				<integer>48</integer>
 				<key>line</key>
-				<integer>8</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../lib/tabbed_navigation.rb</key>
+		<key>../config/locales/ru.yml</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>86</integer>
+				<integer>25</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>sql/cerebrum_development_hosts.sql</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -166,15 +196,16 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>../app/admin/departments.rb</string>
-		<string>../lib/index.rb</string>
+		<string>../app/admin/admin_users.rb</string>
+		<string>../app/admin/hosts.rb</string>
+		<string>sql/cerebrum_development_hosts.sql</string>
+		<string>../app/models/host.rb</string>
+		<string>../app/models/building.rb</string>
+		<string>../Gemfile</string>
+		<string>../app/models/admin_user.rb</string>
+		<string>../app/admin/housings.rb</string>
 		<string>../config/locales/ru.yml</string>
-		<string>../app/admin/buildings.rb</string>
-		<string>../lib/tabbed_navigation.rb</string>
-		<string>../config/initializers/active_admin.rb</string>
-		<string>../lib/breadcrumb_helper.rb</string>
-		<string>../lib/show.rb</string>
-		<string>../app/admin/clients.rb</string>
+		<string>../app/admin/departments.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

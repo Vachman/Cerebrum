@@ -1,6 +1,6 @@
 # encoding: utf-8
 ActiveAdmin.register Housing do
-  menu :label => "Жкх и Дезы", :parent => "Справочник" 
+  menu false# :label => "Жкх и Дезы", :parent => "Справочник" 
   
   index do
     column :name

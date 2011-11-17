@@ -2,58 +2,53 @@
 ActiveAdmin.register Employee do
   menu :parent => "Справочник", :priority => 2 
   
-  sidebar :detals, :only => :show do
+  filter :name, :label => "ФИО" 
+  filter :department, :label => "Отдел" 
+  
+  
+  
+  sidebar "Детали", :only => :show do
     attributes_table_for employee do 
-      row :name
-      row :position
-      row :department
+      row("ФИО") { employee.name }
+      row("Должность") { employee.position }
+      row("Отдел") { employee.department }
     end
   end
   
-  sidebar "Phones", :only => :show do
+  sidebar "Контакты", :only => :show do
     table_for employee.phones do |t|
       t.column('') { |phone| phone.number }
     end
-    link_to "Add phone", new_admin_phone_path( :owner_type => employee.class.name , :owner_id => employee.id )
+    link_to "Добавить", new_admin_phone_path( :owner_type => employee.class.name , :owner_id => employee.id )
   end
   
   
   index do 
-        column :name
-        column("Internal") { |employee|
+        column "ФИО", :name
+        column("Внутренний") { |employee|
           employee.phones.internal.first.number if not employee.phones.internal.empty?
         }
-        column("Phone") { |employee| 
+        column("Телефон") { |employee| 
           employee.phones.first.number if not employee.phones.first.nil? and employee.phones.first.number.length > 4
         }
-        column :position
-        column :department, :sortable => false
+        column "Должность", :position
+        column "Отдел", :department, :sortable => false
         default_actions  
   end
   
   show :title => :page_title do    
-    attributes_table 
+    panel "" do
+    end 
   end
   
   form :title => :page_title do |f| 
-    f.inputs "Details" do
-      f.input :name 
-      f.input :position
-      f.input :department
-    end
-    
-    f.has_many :phones, do |n|
-      n.input :number
-    end
-    
-    
+    f.inputs "Подробнее" do
+      f.input :name, :label => "ФИО"  
+      f.input :position, :label => "Должность" 
+      f.input :department, :label => "Отдел" 
+    end   
     f.buttons
   end
     
-  controller do
-      def define_a_method
-        # Instance method
-      end
-  end
     
 end

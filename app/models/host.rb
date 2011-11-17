@@ -9,7 +9,7 @@ class Host < ActiveRecord::Base
   validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
 
-  scope :roof, where('location = ?', 'Крыша')
+  scope :roof, where('location = ?', 'Чердак')
   scope :basement, where('location = ?', 'Подвал')
   
 

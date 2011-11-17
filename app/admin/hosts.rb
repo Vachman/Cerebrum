@@ -15,7 +15,7 @@ ActiveAdmin.register Host do
       column "Дом", :building
       column "Местонахождение", do |host|
         unless host.location.nil? 
-          status_tag host.location, ( host.location.eql?('Крыша') ? :ok : :warning )
+          status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
         end
       end
       default_actions
@@ -29,7 +29,7 @@ ActiveAdmin.register Host do
     f.inputs do
       f.input :hostname, :label => "IP"
       f.input :building, :label => "Дом"
-      f.input :location, :as => :select, :collection => ["Крыша", "Подвал"], :label => "Местонахождение" 
+      f.input :location, :as => :select, :collection => ["Чердак", "Подвал"], :label => "Местонахождение" 
     end
     f.buttons
   end

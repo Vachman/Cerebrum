@@ -6,7 +6,7 @@ module ActiveAdmin
         protected
         
         def default_title
-           "#{resource.name}"
+          resource.respond_to?('name') ? "#{resource.name}" : "#{resource.id}" 
         end  
 
       end

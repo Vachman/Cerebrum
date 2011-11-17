@@ -1,6 +1,6 @@
 # Additional translations at http://github.com/plataformatec/devise/wiki/I18n
 
-en:
+ru:
   errors:
     messages:
       expired: "has expired, please request a new one"
@@ -22,8 +22,6 @@ en:
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
-      admin_user:
-        signed_in: 'Вы вошли в систему.'
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
     passwords:

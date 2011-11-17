@@ -1,0 +1,4 @@
+ru:
+  time:
+    formats:
+      long: "%H:%M:%S   %d-%m %Y"

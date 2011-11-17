@@ -22,8 +22,8 @@ gem 'unicorn'
 
 gem 'snmp'
 
-gem 'pry', :group => :development
-gem 'pry-rails', :group => :development
+gem 'pry' #, :group => :development
+gem 'pry-rails'#, :group => :development
 gem 'growl', :group => [:test, :development]
 gem "rspec-rails", :group => [:test, :development]
 

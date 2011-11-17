@@ -4,7 +4,7 @@ gem 'rails', '3.1.1'
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'rb-fsevent'
-gem 'activeadmin'
+gem 'activeadmin', '0.3.4'
 gem "cancan"
 
 # Gems used only for assets and not required

@@ -1,12 +1,14 @@
 # encoding: utf-8
-ActiveAdmin.register Department do
-  menu :label =>  "Отделы", :parent => "Сотрудники"
+ActiveAdmin.register Department do 
+  menu :parent => "Сотрудники"
 
   filter :name, :label => "Названию"
 
   index do
     column "Отдел", :name
     default_actions
+    #binding.pry
+    
   end
   
   show do
@@ -23,5 +25,4 @@ ActiveAdmin.register Department do
     end
     f.buttons
   end
-
 end

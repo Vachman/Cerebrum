@@ -1,6 +1,6 @@
 # encoding: utf-8
 ActiveAdmin.register Department do 
-  menu :parent => "Сотрудники"
+  menu false
 
   filter :name, :label => "Названию"
 

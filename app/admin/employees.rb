@@ -1,6 +1,6 @@
 # encoding: utf-8
 ActiveAdmin.register Employee do
-  menu :label => "Сотрудники", :priority => 9999
+  menu :parent => "Справочник", :priority => 2 
   
   sidebar :detals, :only => :show do
     attributes_table_for employee do 

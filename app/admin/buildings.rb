@@ -1,6 +1,6 @@
 # encoding: utf-8
 ActiveAdmin.register Building do
-  menu :parent => "Спаривочник"
+  menu :parent => "Справочник"
   
   filter :name, :label => "Дому"
 

@@ -4,7 +4,7 @@
 # http://en.wikipedia.org/wiki/Cron
 
 every 1.minute do
-  command "date >> #{path}/datetest"
+  #command "date >> #{path}/datetest"
 end
 
 

@@ -51,16 +51,16 @@ end
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
 # В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn
 namespace :deploy do
-  task :restart do
+  task :restart, :roles => [:web] do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current/ && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
-  task :start do
+  task :start, :roles => [:web] do
     run "cd #{deploy_to}/current/ && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
   end
-  task :stop do
+  task :stop, :roles => [:web] do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
-  task :config_nginx do
+  task :config_nginx, :roles => :web do
     vhost_template = "
     upstream #{application}.heelp.me_server {
       server unix:/srv/#{application}/shared/unicorn.sock fail_timeout=0;

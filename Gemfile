@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'rb-fsevent'
 gem 'activeadmin', '0.3.4'
 gem "cancan"
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.

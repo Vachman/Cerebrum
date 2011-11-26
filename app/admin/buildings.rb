@@ -4,6 +4,13 @@ ActiveAdmin.register Building do
   
   filter :name, :label => "Дому"
 
+  sidebar "Дом", :only => :show do
+    attributes_table_for building do
+      row("Дом") { link_to building.name, "http://maps.yandex.ru/?text=#{building.name}",{ :target => "_new", :title => "Показать на карте" } }
+      row("Контакты ЖКХ") { building.housing.phone } 
+    end
+  end
+
   index do 
     column "Дом", :name
     column "Контакты ЖКХ", do |building|
@@ -21,10 +28,12 @@ ActiveAdmin.register Building do
   end
   
   show :title => :page_title do
-    panel "Подробности" do
-      attributes_table_for building do
-        row("Дом") { building.name }
-       ( row("Контакты ЖКХ") { building.housing.phone } ) if not building.housing.nil?
+    panel "Оборудование" do
+      table_for building.hosts do |t|
+        t.column("IP Адрес") { |host| link_to host.name, admin_host_path(host)}
+        t.column("Местонахождение") do |host| 
+          status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil?  
+        end  
       end
     end
   end  

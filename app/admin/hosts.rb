@@ -3,7 +3,7 @@ ActiveAdmin.register Host do
   menu :label =>  "Оборудование"  
   
   scope :all, :default => true
-  scope "На крыше", :roof  
+  scope "В чердаке", :roof  
   scope "В подвале", :basement  
   
   

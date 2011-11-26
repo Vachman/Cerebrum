@@ -50,3 +50,13 @@ cacti:
   pool: 5
   username: monty
   password: montypass
+  
+userinfo:
+    adapter: mysql2
+    encoding: utf8
+    reconnect: false
+    database: userinfo
+    pool: 5
+    username: root
+    password: xarakiri
+    socket: /tmp/mysql.sock

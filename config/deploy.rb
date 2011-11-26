@@ -34,32 +34,18 @@ after 'deploy:update_code', :roles => :app do
   run "ln -s #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
 end
 
-namespace :bridge do
-  task :do, :roles => :bridge  do
-    puts capture(opt)
-  end
-end
-
-namespace :doon do
-  task :fuck do
-    puts "FUCK YEA"
-  end
-  
-  task :default do
-    puts "Fuck"
-  end
-  
-   
+namespace :doon do   
   ztask = ARGV[0].split(':')[1] 
-  ( t = task 'tmp', { :roles => [ztask.to_sym] } do
-       puts capture(ENV['cmd'])
+  
+  if ztask && search_task(ztask.to_sym).nil? && ENV['cmd']
+    t = task 'tmp', :roles => [ztask.to_sym], do
+      puts capture(ENV['cmd'])
     end
+     
     t.call
     exit
-  ) if ztask && search_task(ztask.to_sym).nil? && ENV['cmd']
-  
+  end
 end
-
 
 # Далее идут правила для перезапуска unicorn. Их стоит просто принять на веру - они работают.
 # В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>../config/database.yml</string>
+	<string>../Rakefile</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,6 +21,34 @@
 	<integer>201</integer>
 	<key>metaData</key>
 	<dict>
+		<key>../Gemfile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>1</integer>
+		</dict>
+		<key>../Rakefile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>../app/models/building.rb</key>
 		<dict>
 			<key>caret</key>
@@ -54,9 +82,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>17</integer>
 				<key>line</key>
-				<integer>53</integer>
+				<integer>44</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -77,10 +105,42 @@
 			<key>firstVisibleLine</key>
 			<integer>72</integer>
 		</dict>
+		<key>../config/schedule.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>6</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../lib/tasks/tasks.rake</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>../config/database.yml</string>
+		<string>../Gemfile</string>
+		<string>../lib/tasks/tasks.rake</string>
+		<string>../Rakefile</string>
+		<string>../config/schedule.rb</string>
 		<string>../app/models/host.rb</string>
 		<string>../app/models/building.rb</string>
 		<string>../config/initializers/active_admin.rb</string>

@@ -17,7 +17,7 @@ set :scm, "git"
 set :user, "vachman"  # The server's user for deploys
 set :scm_passphrase, "xarakiri"  # The deploy user's password
 
-set :rvm_ruby_string, '1.9.2' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
+set :rvm_ruby_string, '1.9.3' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 set :rvm_type, :user # Указывает на то, что мы будем использовать rvm, установленный у пользователя, от которого происходит деплой, а не системный rvm.
 
 

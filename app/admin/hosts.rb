@@ -28,7 +28,7 @@ ActiveAdmin.register Host do
       column "IP", :hostname 
       column "Дом", :building
       column "Подъезд", :porch
-      column "Местонахождение", do |host|
+      column "Местонахождение" do |host|
         unless host.location.nil? 
           status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
         end

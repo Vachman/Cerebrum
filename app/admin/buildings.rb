@@ -13,7 +13,7 @@ ActiveAdmin.register Building do
 
   index do 
     column "Дом", :name
-    column "Контакты ЖКХ", do |building|
+    column "Контакты ЖКХ" do |building|
       building.housing.nil? ? "-" : building.housing.phone
     end
     default_actions  

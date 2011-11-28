@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121081934) do
+ActiveRecord::Schema.define(:version => 20111128123124) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20111121081934) do
     t.datetime "updated_at"
     t.integer  "building_id"
     t.string   "porch"
+    t.datetime "lastms"
   end
 
   create_table "housings", :force => true do |t|
@@ -131,6 +132,15 @@ ActiveRecord::Schema.define(:version => 20111121081934) do
   end
 
   add_index "ports", ["host_id"], :name => "index_ports_on_host_id"
+
+  create_table "servers", :force => true do |t|
+    t.string   "name"
+    t.string   "hostname"
+    t.string   "user"
+    t.datetime "lastms"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "services", :force => true do |t|
     t.string   "name"

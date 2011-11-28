@@ -4,7 +4,7 @@
 def load_rails_environment
   require File.expand_path('../config/application', __FILE__)
   require 'rake'
-  Speedtest::Application.load_tasks
+  Cerebrum::Application.load_tasks
 end
 
 if ENV['LOAD_RAILS'] == '1'
@@ -48,5 +48,4 @@ end
 
 
 #require File.expand_path('../config/application', __FILE__)
-
 #Cerebrum::Application.load_tasks

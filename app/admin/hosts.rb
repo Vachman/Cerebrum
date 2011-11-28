@@ -9,7 +9,7 @@ ActiveAdmin.register Host do
   
   filter :hostname, :label => "IP"
   filter :building, :label => "Дом"  
-  filter :porch, :label => "Подъезду" 
+  #filter :porch, :label => "Подъезду" 
   
   
   sidebar "Местонахождение", :only => :show do

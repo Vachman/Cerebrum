@@ -41,7 +41,7 @@ end
 after 'deploy:update_code', :roles => :app do
   run "rm -f #{current_release}/config/database.yml"
   run "ln -s #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
-  run "echo 'rvm 1.9.3' > #{path}/.rvmrc"
+  run "echo 'rvm use 1.9.3' > #{application}/current/.rvmrc"
 end
 
 namespace :doon do   

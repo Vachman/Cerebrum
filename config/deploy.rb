@@ -2,6 +2,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Для работы rvm
 require 'rvm/capistrano' # Для работы rvm
 require 'bundler/capistrano' # Для работы bundler.
 require "whenever/capistrano"
+_cset(:whenever_command)      { "bundle exec whenever" }
 
 set :application, "cerebrum"
 set :rails_env, "production"
@@ -9,6 +10,7 @@ set :deploy_to, "/srv/#{application}"
 set :nginx_path, "/usr/local/nginx"
 set :use_sudo, false
 set :hostname, "heelpme"
+set :rake, 'bundle exec rake'
 
 default_run_options[:pty] = true 
 set :repository, "git@github.com:Vachman/Cerebrum.git"  

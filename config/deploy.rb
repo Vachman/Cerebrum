@@ -32,6 +32,10 @@ role :nagios, "v.gevorkyan@nagos.oblelecom.ru", :no_release => true
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
+before 'deploy:update', do
+  system('./git add .')
+  system('./git commit -am "Deploy #{Time.now}"')
+end
 
 after 'deploy:update_code', :roles => :app do
   run "rm -f #{current_release}/config/database.yml"
@@ -39,6 +43,11 @@ after 'deploy:update_code', :roles => :app do
 end
 
 namespace :doon do   
+  task :commit do
+    system('git add .')
+    system('git commit -am "Deploy #{Time.now}"')
+  end
+  
   ztask = ARGV[0].split(':')[1] 
   
   if ztask && search_task(ztask.to_sym).nil? && ENV['cmd']

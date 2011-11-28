@@ -4,7 +4,7 @@
 # http://en.wikipedia.org/wiki/Cron
 
 every 1.minute do
-  command "cd #{path} rake check_availability LOAD_RAILS=1"
+  command "cd #{path} && rake check_availability LOAD_RAILS=1"
 end
 
 

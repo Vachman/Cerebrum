@@ -35,6 +35,7 @@ set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 before 'deploy:update', do
   system('git add .')
   system("git commit -am 'Deploy at #{Time.now}'")
+  system('git push')  
 end
 
 after 'deploy:update_code', :roles => :app do
@@ -46,6 +47,7 @@ namespace :doon do
   task :commit do
     system('git add .')
     system("git commit -am 'Deploy at #{Time.now}'")
+    system('git push')  
   end
   
   ztask = ARGV[0].split(':')[1] 

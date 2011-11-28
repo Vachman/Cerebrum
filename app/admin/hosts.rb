@@ -27,8 +27,14 @@ ActiveAdmin.register Host do
   
   index do
       column "IP", :hostname 
-      column "Доступность" do |host| 
-        time_ago_in_words(host.lastms) if host.lastms.is_a?(Time)  
+      column "Состояние" do |host| 
+        if host.lastms.is_a?(Time) 
+          status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 
+          ( host.lastms > Time.now-1.minute ? :ok : :error ), 
+          :title => time_ago_in_words(host.lastms)  
+        else
+          status_tag "Неизвестно", :title => "Сроду не видели"
+        end
       end
       column "Дом", :building
       column "Подъезд", :porch

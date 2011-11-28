@@ -4,44 +4,44 @@ ru:
       long: "%H:%M:%S   %d-%m %Y"
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: "30 секунд назад"
       less_than_x_seconds:
-        one:   "секунду назад"
-        other: "Меньше чем %{count} секунд"
+        one:   "Был доступен меньше чем секунду назад"
+        other: "Был доступен меньше чем %{count} секунд назад"
       x_seconds:
-        one:   "секунду"
-        other: "%{count} секунд"
+        one:   "Был доступен секунды назад"
+        other: "Был доступен %{count} секунд назад"
       less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
+        one:   "Был доступен меньше минуты назад"
+        other: "Был доступен меньше чем %{count} минут назад"
       x_minutes:
-        one:   "минуту "
-        other: "%{count} минут "
+        one:   "Был доступен минуту назад"
+        other: "Был доступен %{count} минут назад"
       about_x_hours:
-        one:   "1 час"
-        other: "%{count} часа "
+        one:   "Недоступен около часа"
+        other: "Недоступен около %{count} часов"
       x_days:
-        one:   "день"
-        other: "%{count} дней"
+        one:   "Недоступен день"
+        other: "Недоступен %{count} дней"
       about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
+        one:   "Недоступен около месяца"
+        other: "Недоступен около %{count} месяцев"
       x_months:
-        one:   "1 month"
-        other: "%{count} months"
+        one:   "Недоступен месяц"
+        other: "Недоступен %{count} месяцев"
       about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
+        one:   "Недоступен около года"
+        other: "Недоступен около %{count} лет"
       over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
+        one:   "Недоступен больше года"
+        other: "Недоступен больше %{count} лет"
       almost_x_years:
-        one:   "almost 1 year"
-        other: "almost %{count} years"
+        one:   "Недоступен почти год"
+        other: "Недоступен почти %{count} лет"
     prompts:
-      year:   "Year"
-      month:  "Month"
-      day:    "Day"
-      hour:   "Hour"
-      minute: "Minute"
-      second: "Seconds"
+      year:   "Год"
+      month:  "Месяц"
+      day:    "День"
+      hour:   "Час"
+      minute: "Минута"
+      second: "Секунда"

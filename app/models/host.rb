@@ -15,6 +15,9 @@ class Host < ActiveRecord::Base
   scope :roof, where('location = ?', 'Чердак')
   scope :basement, where('location = ?', 'Подвал')
   
+  scope :available, where('lastms > ?', Time.now-1.minute )
+  scope :unavailable, where('lastms < ? OR lastms is ? ', Time.now-1.minute, nil)
+  
   alias_attribute :name, :hostname
   
   

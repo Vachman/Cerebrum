@@ -5,11 +5,12 @@ ActiveAdmin.register Host do
   scope :all, :default => true
   scope "В чердаке", :roof  
   scope "В подвале", :basement  
-  
+  scope "Доступные", :available
+  scope "Недоступные", :unavailable
   
   filter :hostname, :label => "IP"
   filter :building, :label => "Дом"  
-  #filter :porch, :label => "Подъезду" 
+  filter :porch, :label => "Подъезду" 
   
   
   sidebar "Местонахождение", :only => :show do
@@ -26,6 +27,9 @@ ActiveAdmin.register Host do
   
   index do
       column "IP", :hostname 
+      column "Доступность" do |host| 
+        time_ago_in_words(host.lastms) if host.lastms.is_a?(Time)  
+      end
       column "Дом", :building
       column "Подъезд", :porch
       column "Местонахождение" do |host|

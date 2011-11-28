@@ -33,8 +33,8 @@ set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 before 'deploy:update', do
-  system('./git add .')
-  system('./git commit -am "Deploy #{Time.now}"')
+  system('git add .')
+  system("git commit -am 'Deploy at #{Time.now}'")
 end
 
 after 'deploy:update_code', :roles => :app do

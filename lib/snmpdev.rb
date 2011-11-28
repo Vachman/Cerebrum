@@ -1,0 +1,9 @@
+module SnmpDev
+  def walk(oid)
+    `snmpwalk -r 1 -t 1 -v2c -c public -Ov public #{self.hostname} #{oid} 2>/dev/null`
+  end
+  
+  def sysDescr
+    walk('sysDescr').split(' ')[1]
+  end
+end

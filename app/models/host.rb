@@ -1,12 +1,13 @@
 # encoding: utf-8
-require "net/telnet"
-require "snmp"
-require "./lib/netdev.rb"
+require "./lib/netdev"
+require "./lib/snmpdev"
 
 class Host < ActiveRecord::Base
   include NetDev
+  include SnmpDev
   
   belongs_to :building
+  belongs_to :device_type
   
   validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
@@ -20,7 +21,18 @@ class Host < ActiveRecord::Base
   
   alias_attribute :name, :hostname
   
+  after_save  :update_information
   
+  def update_informaion
+    update_device_type
+  end
+  
+  def update_device_type
+    sys_descr = self.sysDescr
+    unless sysDescr.empty?
+      self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(sysDescr)
+    end 
+  end
 
   def self.scan_for_new
     p "Sacnning for new hosts"

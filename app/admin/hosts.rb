@@ -15,7 +15,7 @@ ActiveAdmin.register Host do
   
   sidebar "Местонахождение", :only => :show do
     attributes_table_for host do
-      row("Дом") { link_to host.building.name, admin_building_path(host.building) }
+      row("Дом") { link_to host.building.name, admin_building_path(host.building) unless host.building.nil? } 
       row("Подъезд") { host.porch }
       row("Местонахождение") do 
         unless host.location.nil? 
@@ -36,7 +36,7 @@ ActiveAdmin.register Host do
           status_tag "Неизвестно", :title => "Сроду не видели"
         end
       end
-      column "Дом", :building
+      column "Дом", :building, :sortable => false 
       column "Подъезд", :porch
       column "Местонахождение" do |host|
         unless host.location.nil? 
@@ -47,8 +47,10 @@ ActiveAdmin.register Host do
   end  
   
   show do
-    panel '' do
-      
+    panel "Подробности" do
+      attributes_table_for host do
+        row("Hostname") { host.hostname }
+      end
     end
   end
   

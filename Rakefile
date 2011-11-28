@@ -30,7 +30,7 @@ else
       load_rails_environment
       # Explicitly invoke the rails environment task so that all configuration
       # gets loaded before the actual task (appended on to this one) runs.
-      Rake::Task['environment'].invoke
+   #   Rake::Task['environment'].invoke
     end
   end
 
@@ -38,13 +38,13 @@ else
   # get a list of all the actual tasks. This isn't necessary but is a courtesy
   # to your future self.
   desc "!!! Default rails tasks are hidden, run with LOAD_RAILS=1 to reveal."
-  task :rails
+#  task :rails
 end
 
 # Load all tasks defined in lib/tasks/*.rake
-Dir[File.expand_path("../lib/tasks/", __FILE__) + '/*.rake'].each do |file|
-  load file
-end
+#Dir[File.expand_path("../lib/tasks/", __FILE__) + '/*.rake'].each do |file|
+#  load file
+#end
 
 
 #require File.expand_path('../config/application', __FILE__)

@@ -45,7 +45,7 @@ end
 namespace :doon do   
   task :commit do
     system('git add .')
-    system('git commit -am "Deploy #{Time.now}"')
+    system("git commit -am 'Deploy #{Time.now}'")
   end
   
   ztask = ARGV[0].split(':')[1] 

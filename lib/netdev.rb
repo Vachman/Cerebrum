@@ -1,10 +1,12 @@
-module NetDev
-  def available?
-    `fping -a -t 50 "#{self.hostname}"`.empty? ? false : true  
+require 'snmp'
+module SnmpDev                 
+  def get_value(oid)
+      SNMP::Manager.open(:Host => self.hostname, :timeout => 1, :retries => 1) do |manager|
+        manager.get_value(oid)   
+      end                        
   end
-  
-  def update_lastms
-    self.update_attribute('lastms',Time.now) if self.has_attribute?('lastms')
+
+  def sysDescr
+    get_value('sysDescr.0')    
   end
-  
 end

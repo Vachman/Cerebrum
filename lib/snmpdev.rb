@@ -1,11 +1,13 @@
-require "snmp"
+require 'snmp'
 
-module SnmpDev
-  def walk(oid)
-    `snmpwalk -r 1 -t 1 -v2c -c public -Ov #{self.hostname} #{oid} `
+module SnmpDev                 
+  def get_value(oid)
+      SNMP::Manager.open(:Host => self.hostname, :timeout => 1, :retries => 1) do |manager|
+        manager.get_value(oid)   
+      end                        
   end
-  
+
   def sysDescr
-    walk('sysDescr').split(' ')[1]
+    get_value('sysDescr.0')    
   end
 end

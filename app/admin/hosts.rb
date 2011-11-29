@@ -9,7 +9,8 @@ ActiveAdmin.register Host do
   scope "Недоступные", :unavailable
   
   filter :hostname, :label => "IP"
-  filter :building, :label => "Дом"  
+  filter :device_type, :label => "Устройству" 
+  filter :building, :label => "Дом"
   filter :porch, :label => "Подъезду" 
   
   
@@ -27,6 +28,7 @@ ActiveAdmin.register Host do
   
   index do
       column "IP", :hostname 
+      column "Устройство", :device_type
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 
           status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 
@@ -50,6 +52,7 @@ ActiveAdmin.register Host do
     panel "Подробности" do
       attributes_table_for host do
         row("Hostname") { host.hostname }
+        row("Устройство") { host.device_type.name unless host.device_type.nil? }
       end
     end
   end

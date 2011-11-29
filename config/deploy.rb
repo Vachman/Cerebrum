@@ -10,7 +10,7 @@ set :deploy_to, "/srv/#{application}"
 set :nginx_path, "/usr/local/nginx"
 set :use_sudo, false
 set :hostname, "heelpme"
-set :rake, 'bundle exec rake'
+set :rake, 'LOAD_RAILS=1 bundle exec rake'
 
 default_run_options[:pty] = true 
 set :repository, "git@github.com:Vachman/Cerebrum.git"  

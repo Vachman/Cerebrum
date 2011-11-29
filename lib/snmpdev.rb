@@ -12,6 +12,10 @@ module SnmpDev
       end  
   end
 
+  def sysModel
+    get_value('SNMPv2-SMI::mib-2.47.1.1.1.1.2.1')    
+  end
+  
   def sysDescr
     get_value('sysDescr.0')    
   end

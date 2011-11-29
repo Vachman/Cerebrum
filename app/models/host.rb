@@ -29,9 +29,13 @@ class Host < ActiveRecord::Base
   
   def update_device_type
     sys_descr = self.sysDescr || ''
+    sys_model = self.sysModel || ''
     unless sysDescr.nil?
-      self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(:name => sysDescr)
+      self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(:name => sysDescr, :model => sys_model)
+      self.save
     end 
+    
+    
   end
 
   def self.scan_for_new

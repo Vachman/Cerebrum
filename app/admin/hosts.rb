@@ -28,7 +28,9 @@ ActiveAdmin.register Host do
   
   index do
       column "IP", :hostname 
-      column "Устройство", :device_type
+      column "Устройство" do |host|
+        host.device_type.name.split(' ')[0..1].join(' ') unless host.device_type.nil? 
+      end
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 
           status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 

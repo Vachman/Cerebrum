@@ -29,7 +29,7 @@ ActiveAdmin.register Host do
   index do
       column "IP", :hostname 
       column "Устройство" do |host|
-        host.device_type.name.split(' ')[0..1].join(' ') unless host.device_type.nil? 
+        host.device_type.model unless host.device_type.nil? 
       end
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 

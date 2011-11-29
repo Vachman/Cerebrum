@@ -21,9 +21,9 @@ class Host < ActiveRecord::Base
   
   alias_attribute :name, :hostname
   
-  after_save  :update_information
-  
-  def update_informaion
+  after_create  :update_information
+                
+  def update_information
     update_device_type
   end
   

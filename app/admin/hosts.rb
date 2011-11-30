@@ -42,11 +42,11 @@ ActiveAdmin.register Host do
       end
       column "Дом", :building, :sortable => false 
       column "Подъезд", :porch
-      column "Местонахождение" do |host|
-        unless host.location.nil? 
-          status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
-        end
-      end
+     # column "Местонахождение" do |host|
+      #  unless host.location.nil? 
+       #   status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
+      #  end
+      #end
       default_actions
   end  
   

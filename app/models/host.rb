@@ -42,9 +42,10 @@ class Host < ActiveRecord::Base
     end 
   end
   
-  def method_missing(key, *args)
+ # def method_missing(key, *args)
+  #  puts "What do you mean when say #{key} ?"
     
-    puts "What do you mean when say #{key} ?"
-  end
+    
+  #end
     
 end

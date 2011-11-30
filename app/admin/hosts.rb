@@ -12,8 +12,7 @@ ActiveAdmin.register Host do
   filter :building, :label => "Дом"
   filter :device_type, :label => "Устройство" 
  
-  
-  
+ 
   sidebar "Местонахождение", :only => :show do
     attributes_table_for host do
       row("Дом") { link_to host.building.name, admin_building_path(host.building) unless host.building.nil? } 
@@ -28,9 +27,11 @@ ActiveAdmin.register Host do
   
   index do
       column "IP", :hostname 
-      column "Устройство" do |host|
-        host.device_type.model unless host.device_type.nil? 
-      end
+      column "Устройство" do |host| 
+        div :class => "center" do 
+          host.device_type.nil? ? '-' : host.device_type.name 
+        end
+      end 
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 
           status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 

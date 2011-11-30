@@ -43,7 +43,7 @@ ActiveAdmin.register Building do
             status_tag "Неизвестно", :title => "Сроду не видели"
           end
         end
-        t.column("Подъедз") { |host| host.porch}
+        t.column("Подъедз") { |host|  host.porch }
         t.column("Местонахождение") do |host| 
           status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil? or host.location.empty?   
         end  

@@ -9,9 +9,9 @@ ActiveAdmin.register Host do
   scope "Недоступные", :unavailable
   
   filter :hostname, :label => "IP"
-  filter :device_type, :label => "Устройству" 
   filter :building, :label => "Дом"
-  filter :porch, :label => "Подъезду" 
+  filter :device_type, :label => "Устройство" 
+ 
   
   
   sidebar "Местонахождение", :only => :show do
@@ -42,11 +42,11 @@ ActiveAdmin.register Host do
       end
       column "Дом", :building, :sortable => false 
       column "Подъезд", :porch
-     # column "Местонахождение" do |host|
-      #  unless host.location.nil? 
-       #   status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
-      #  end
-      #end
+     #column "Местонахождение" do |host|
+     #  unless host.location.nil? 
+     #   status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
+     #  end
+     #end
       default_actions
   end  
   
@@ -54,7 +54,7 @@ ActiveAdmin.register Host do
     panel "Подробности" do
       attributes_table_for host do
         row("Hostname") { host.hostname }
-        row("Устройство") { host.device_type.name unless host.device_type.nil? }
+        row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
       end
     end
   end

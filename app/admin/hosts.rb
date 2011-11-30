@@ -29,7 +29,7 @@ ActiveAdmin.register Host do
       column "IP", :hostname 
       column "Устройство" do |host| 
         div :class => "center" do 
-          host.device_type.nil? ? '-' : host.device_type.name 
+          host.device_type.nil? ? '-' : host.device_type.model 
         end
       end 
       column "Состояние" do |host| 

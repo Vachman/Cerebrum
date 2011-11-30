@@ -32,7 +32,7 @@ ActiveAdmin.register Employee do
           employee.phones.first.number if not employee.phones.first.nil? and employee.phones.first.number.length > 4
         }
         column "Должность", :position
-        column "Отдел", :department, :sortable => false
+    #    column "Отдел", :department, :sortable => false
         default_actions  
   end
   

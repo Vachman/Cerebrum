@@ -2,8 +2,8 @@
 ActiveAdmin.register Client do
   
   scope :all, :default => true
-  scope :companys
-  scope :individuals
+  scope "Организации", :companys
+  scope "Частные", :individuals
   
   index do
     column "Contract N", :contract

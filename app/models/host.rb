@@ -23,11 +23,7 @@ class Host < ActiveRecord::Base
   alias_attribute :name, :hostname
   
   after_create  :update_information
-  
-  
-  if self.is_a?(Host)
-    puts "FUCKED UP YEAAA!"
-  end  
+
                 
   def update_information
     update_device_type

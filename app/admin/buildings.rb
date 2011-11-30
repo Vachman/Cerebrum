@@ -31,8 +31,17 @@ ActiveAdmin.register Building do
     panel "Оборудование" do
       table_for building.hosts do |t|
         t.column("IP Адрес") { |host| link_to host.name, admin_host_path(host)}
+        column "Состояние" do |host| 
+          if host.lastms.is_a?(Time) 
+            status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 
+            ( host.lastms > Time.now-1.minute ? :ok : :error ), 
+            :title => time_ago_in_words(host.lastms)  
+          else
+            status_tag "Неизвестно", :title => "Сроду не видели"
+          end
+        end
         t.column("Местонахождение") do |host| 
-          status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil?  
+          status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil? or host.location.empty?   
         end  
       end unless building.hosts.empty?
     end

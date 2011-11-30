@@ -28,9 +28,7 @@ ActiveAdmin.register Host do
   index do
       column "IP", :hostname 
       column "Устройство" do |host| 
-        div :class => "center" do 
-          host.device_type.nil? ? '-' : host.device_type.model 
-        end
+          host.device_type.nil? ? (div :class => "center" do  '- ' end ) : host.device_type.model 
       end 
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 
@@ -42,9 +40,7 @@ ActiveAdmin.register Host do
         end
       end
       column "Дом", :sortable => false do |host| 
-        div :class => "center" do 
-          host.building.nil? ? '-' : host.building.name 
-        end 
+          host.building.nil? ? (div :class => "center" do  '- ' end ) : host.building.name 
       end
       column "Подъезд", :porch
      #column "Местонахождение" do |host|

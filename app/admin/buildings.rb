@@ -7,7 +7,7 @@ ActiveAdmin.register Building do
   sidebar "Дом", :only => :show do
     attributes_table_for building do
       row("Дом") { link_to building.name, "http://maps.yandex.ru/?text=#{building.name}",{ :target => "_new", :title => "Показать на карте" } }
-      row("Контакты ЖКХ") { building.housing.phone } 
+      row("Контакты ЖКХ") { building.housing.phone unless building.housing.nil? } 
     end
   end
 
@@ -34,7 +34,7 @@ ActiveAdmin.register Building do
         t.column("Местонахождение") do |host| 
           status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil?  
         end  
-      end
+      end unless building.hosts.empty?
     end
   end  
   

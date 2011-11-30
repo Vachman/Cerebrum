@@ -1,14 +1,15 @@
 # encoding: utf-8
 require "./lib/netdev"
 require "./lib/snmpdev"
+Dir['./lib/devices/*.rb'].each { |file| require file }
 
 class Host < ActiveRecord::Base
   include NetDev
   include SnmpDev
-  
+
   belongs_to :building
   belongs_to :device_type
-  
+
   validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
   validates_numericality_of :porch, :allow_nil => true, :message => "is not a number" 
@@ -22,6 +23,11 @@ class Host < ActiveRecord::Base
   alias_attribute :name, :hostname
   
   after_create  :update_information
+  
+  
+  if self.is_a?(Host)
+    puts "FUCKED UP YEAAA!"
+  end  
                 
   def update_information
     update_device_type
@@ -31,15 +37,14 @@ class Host < ActiveRecord::Base
     sys_descr = self.sysDescr || ''
     sys_model = self.sysModel || ''
     unless sysDescr.nil?
-      self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(:name => sysDescr, :model => sys_model)
+      self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(:name => sysDescr)
       self.save
     end 
-    
-    
-  end
-
-  def self.scan_for_new
-    p "Sacnning for new hosts"
   end
   
+  def method_missing(key, *args)
+    
+    puts "What do you mean when say #{key} ?"
+  end
+    
 end

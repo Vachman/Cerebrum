@@ -41,7 +41,11 @@ ActiveAdmin.register Host do
           status_tag "Неизвестно", :title => "Сроду не видели"
         end
       end
-      column "Дом", :building, :sortable => false 
+      column "Дом", :sortable => false do |host| 
+        div :class => "center" do 
+          host.building.nil? ? '-' : host.building.name 
+        end 
+      end
       column "Подъезд", :porch
      #column "Местонахождение" do |host|
      #  unless host.location.nil? 

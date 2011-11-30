@@ -40,7 +40,7 @@ ActiveAdmin.register Host do
         end
       end
       column "Дом", :sortable => false do |host| 
-         host.building.name unless host.building.nil? 
+         link_to host.building.name, admin_building_path(host.building) unless host.building.nil? 
       end
       column "Подъезд", :porch
      #column "Местонахождение" do |host|

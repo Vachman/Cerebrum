@@ -64,7 +64,7 @@ ActiveAdmin.register Host do
     f.inputs do
       f.input :hostname, :label => "IP"
       f.input :building, :label => "Дом"
-      f.input :porch, :as => :select, :collection => (1..20).to_a, :selected => f.object.porch , :label => "Подъезд" 
+      f.input :porch, :as => :select, :selected => f.object.porch.to_i, :collection => (1..20).to_a, :label => "Подъезд" 
       f.input :location, :as => :select, :collection => ["Чердак", "Подвал"], :label => "Местонахождение"     
     end
     f.buttons

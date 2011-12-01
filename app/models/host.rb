@@ -43,7 +43,7 @@ class Host < ActiveRecord::Base
   end
   
   def method_missing(key, *args)
-    #if self.kind_of?
+    #рif self.kind_of?
     super  
   end
     

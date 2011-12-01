@@ -29,6 +29,10 @@ class Host < ActiveRecord::Base
     update_device_type
   end
   
+  def module_name
+    self.device_type.name.parameterize.underscore.classify unless self.device_type.nil?
+  end
+    
   def update_device_type
     sys_descr = self.sysDescr || ''
     sys_model = self.sysModel || ''
@@ -38,10 +42,9 @@ class Host < ActiveRecord::Base
     end 
   end
   
- # def method_missing(key, *args)
-  #  puts "What do you mean when say #{key} ?"
-    
-    
-  #end
+  def method_missing(key, *args)
+    #if self.kind_of?
+    super  
+  end
     
 end

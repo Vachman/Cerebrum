@@ -3,7 +3,7 @@ ActiveAdmin.register Host do
   menu :label =>  "Оборудование"  
   
   scope :all, :default => true
-  scope "В чердаке", :roof  
+  scope "На чердаке", :roof  
   scope "В подвале", :basement  
   scope "Доступные", :available
   scope "Недоступные", :unavailable
@@ -64,7 +64,8 @@ ActiveAdmin.register Host do
     f.inputs do
       f.input :hostname, :label => "IP"
       f.input :building, :label => "Дом"
-      f.input :porch, :as => :select, :collection => (1..20).to_a, :label => "Подъезд" 
+      f.input :porch, :as => :select, :collection => (1..20).to_a, :selected => f.object.porch , :label => "Подъезд" 
+     
       f.input :location, :as => :select, :collection => ["Чердак", "Подвал"], :label => "Местонахождение"     
     end
     f.buttons

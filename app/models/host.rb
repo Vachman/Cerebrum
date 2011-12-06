@@ -41,7 +41,6 @@ class Host < ActiveRecord::Base
     sys_model = self.sysModel || ''
     unless sysDescr.nil?
       self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(:name => sysDescr)
-      self.save
     end 
   end
   

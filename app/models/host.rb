@@ -37,12 +37,13 @@ class Host < ActiveRecord::Base
   end
     
   def update_device_type
-    sys_descr = self.sysDescr || ''
-    sys_model = self.sysModel || ''
-    unless sysDescr.nil?
-      self.device_type = DeviceType.find_by_name(sysDescr) || DeviceType.create(:name => sysDescr)
+    sys_descr = self.sysDescr || '' 
+    unless sys_descr.empty?
+      self.device_type = DeviceType.find_by_name(sys_descr) || DeviceType.create(:name => sys_descr)
     end 
   end
+  
+  
   
   def method_missing(key, *args)  
       begin

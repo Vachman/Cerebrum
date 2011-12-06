@@ -57,7 +57,16 @@ ActiveAdmin.register Host do
         row("Hostname") { host.hostname }
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
         row("Тестовый") { host.ports_count }
-      end
+        row("Состояние") do  
+          if host.lastms.is_a?(Time) 
+            status_tag (host.lastms > Time.now-2.minute ? 'Доступен' : 'Недоступен' ), 
+            ( host.lastms > Time.now-2.minute ? :ok : :error ), 
+            :title => time_ago_in_words(host.lastms)  
+          else
+            status_tag "Неизвестно", :title => "Сроду не видели"
+          end
+       end
+     end
     end
   end
   

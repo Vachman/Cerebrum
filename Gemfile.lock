@@ -121,6 +121,9 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.3)
     mysql2 (0.3.10)
+    net-ldap (0.2.2)
+    net-ping (1.5.2)
+      net-ldap (~> 0.2.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -249,6 +252,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   mysql2
+  net-ping
   pry
   pry-rails
   rails (= 3.1.1)

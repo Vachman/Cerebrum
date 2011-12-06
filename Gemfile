@@ -7,6 +7,7 @@ gem 'rb-fsevent'
 gem 'activeadmin', '0.3.4'
 gem "cancan"
 gem 'whenever'
+gem 'net-ping'
 
 # Gems used only for assets and not required
 # in production environments by default.

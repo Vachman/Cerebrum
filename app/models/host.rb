@@ -47,19 +47,19 @@ class Host < ActiveRecord::Base
   
   def method_missing(key, *args)  
       begin
-        p '1'
+      #  p '1'
         raise if self.respond_to?(key.to_s)
-        p '2'
+      #  p '2'
         return unless Module.constants.include?(self.module_name.to_sym)
-        p '3'
+      #  p '3'
         eval("self.extend(#{self.module_name})")  
-        p '4'
-        eval("self.#{key}") if self.respond_to?(key.to_s)
-        p '5'
+      #  p '4'
+        return eval("self.#{key.to_s}") if self.respond_to?(key.to_s)
+      #  p '5'
         return  
-        p '6'
+      #  p '6'
       rescue
-        p '7'
+      #  p '7'
         super  
       end  
   end

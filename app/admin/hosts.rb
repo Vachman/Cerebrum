@@ -65,7 +65,7 @@ ActiveAdmin.register Host do
           else
             status_tag "Неизвестно", :title => "Сроду не видели"
           end
-       end
+        end
      end
     end
   end

@@ -12,25 +12,28 @@ class Host < ActiveRecord::Base
 
   validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
-  validates_numericality_of :porch, :allow_nil => true, :message => "is not a number" 
   
   scope :roof, where('location = ?', 'Чердак')
   scope :basement, where('location = ?', 'Подвал')
   
-  scope :available, where('lastms > ?', Time.now-1.minute )
-  scope :unavailable, where('lastms < ? OR lastms is ? ', Time.now-1.minute, nil)
+  scope :available, where('lastms > ?', Time.now-2.minute )
+  scope :unavailable, where('lastms < ? OR lastms is ? ', Time.now-2.minute, nil)
   
   alias_attribute :name, :hostname
   
-  after_create  :update_information
+  before_save :update_information 
 
                 
   def update_information
-    update_device_type
+    p "Up if"
+    if self.new_record? || self.hostname_changed?
+    p  'Up DT'
+      update_device_type
+    end
   end
   
-  def module_name
-    self.device_type.name.parameterize.underscore.classify unless self.device_type.nil?
+  def module_name  
+    self.device_type.nil? ? '' : self.device_type.name.parameterize.underscore.classify 
   end
     
   def update_device_type
@@ -42,9 +45,22 @@ class Host < ActiveRecord::Base
     end 
   end
   
-  def method_missing(key, *args)
-    #рif self.kind_of?
-    super  
+  def method_missing(key, *args)  
+      begin
+        p '1'
+        raise if self.respond_to?(key.to_s)
+        p '2'
+        return unless Module.constants.include?(self.module_name.to_sym)
+        p '3'
+        eval("self.extend(#{self.module_name})")  
+        p '4'
+        eval("self.#{key}") if self.respond_to?(key.to_s)
+        p '5'
+        return  
+        p '6'
+      rescue
+        p '7'
+        super  
+      end  
   end
-    
 end

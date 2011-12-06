@@ -18,7 +18,7 @@ ActiveAdmin.register Host do
       row("Дом") { link_to host.building.name, admin_building_path(host.building) unless host.building.nil? } 
       row("Подъезд") { host.porch }
       row("Местонахождение") do 
-        unless host.location.nil? 
+        unless host.location.nil? || host.location.empty?
           status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
         end
       end
@@ -32,8 +32,8 @@ ActiveAdmin.register Host do
       end 
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 
-          status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 
-          ( host.lastms > Time.now-1.minute ? :ok : :error ), 
+          status_tag (host.lastms > Time.now-2.minute ? 'Доступен' : 'Недоступен' ), 
+          ( host.lastms > Time.now-2.minute ? :ok : :error ), 
           :title => time_ago_in_words(host.lastms)  
         else
           status_tag "Неизвестно", :title => "Сроду не видели"
@@ -56,6 +56,7 @@ ActiveAdmin.register Host do
       attributes_table_for host do
         row("Hostname") { host.hostname }
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
+        row("Тестовый") { host.ports_count }
       end
     end
   end

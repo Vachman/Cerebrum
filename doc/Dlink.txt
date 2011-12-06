@@ -1,0 +1,8 @@
+"D-Link DES-3028 Fast Ethernet Switch" 		28  24-fe 	2-ge 	2-combo 
+"DGS-3200-10 Gigabit Ethernet Switch" 		10  8-g 	2-combo
+"D-Link DES-3028G Fast Ethernet Switch"		28  24-fe 	2-ge 	2-combo 
+"D-Link DES-3010G Fast Ethernet Switch"		10	8-fe	1-ge	1-f
+"D-Link DES-3028P Fast Ethernet Switch"		28	24-fe 	2-ge 	2-combo 
+"DGS-3612G Gigabit Ethernet Switch"			12 	4combo	8-f
+"DGS-3627G Gigabit Ethernet Switch"			27 	4combo	20-f	3-10g
+"DGS-3100-24TG  Gigabit stackable L2"		24	20-g	4combo		

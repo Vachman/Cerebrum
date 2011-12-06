@@ -36,8 +36,8 @@ ActiveAdmin.register Building do
         end
         column "Состояние" do |host| 
           if host.lastms.is_a?(Time) 
-            status_tag (host.lastms > Time.now-1.minute ? 'Доступен' : 'Недоступен' ), 
-            ( host.lastms > Time.now-1.minute ? :ok : :error ), 
+            status_tag (host.lastms > Time.now-2.minute ? 'Доступен' : 'Недоступен' ), 
+            ( host.lastms > Time.now-2.minute ? :ok : :error ), 
             :title => time_ago_in_words(host.lastms)  
           else
             status_tag "Неизвестно", :title => "Сроду не видели"

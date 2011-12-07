@@ -1,6 +1,7 @@
 module NetDev
   def available?
     `fping -a -t 50 "#{self.hostname}"`.empty? ? false : true  
+    logger.debug `fping -a -t 50 "#{self.hostname}"`
   end
   
   def update_lastms

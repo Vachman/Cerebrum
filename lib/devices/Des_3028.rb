@@ -11,4 +11,11 @@ module DLinkDes3028FastEthernetSwitch
   def testfunc
     puts 'Des 3028 '
   end
+
+  def update_firmware
+  end
+  
+  def update_bootloader
+  end
+
 end

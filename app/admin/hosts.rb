@@ -56,7 +56,7 @@ ActiveAdmin.register Host do
       attributes_table_for host do
         row("Hostname") { host.hostname }
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
-        row("Тестовый") { host.ports_count }
+        row("Тестовый") { host.available?.to_s }
         row("Состояние") do  
           if host.lastms.is_a?(Time) 
             status_tag (host.lastms > Time.now-2.minute ? 'Доступен' : 'Недоступен' ), 

@@ -25,9 +25,9 @@ class Host < ActiveRecord::Base
 
                 
   def update_information
-    p "Up if"
+  #  p "Up if"
     if self.new_record? || self.hostname_changed?
-    p  'Up DT'
+  #  p  'Up DT'
       update_device_type
     end
   end

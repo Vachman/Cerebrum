@@ -20,13 +20,25 @@ module DLinkDes3028FastEthernetSwitch
       connected? ? "Already connected" : self.telnet = Net::Telnet.new("Host" => self.hostname, "Telnetmode" => false, "Prompt" => PROMPT, "Timeout" => 1 )  
   end
       
-  def send(string)
+  def send(options)
     connect if not connected?
-    self.telnet.cmd(string) { |output| 
-      raise FAIL["Message"] if FAIL["Regexp"] === output
-      self.telnet.print("a\n") if /Next\ Entry/ === output
-      return true if SUCCESS === output
-    } 
+    
+    if options.kind_of?(Hash)
+      string = options["String"]
+      dontWait = options["DontWait"] if options.has_key?("DontWait")
+    else
+      string = options
+    end
+    
+    if dontWait
+      self.telnet.print(string)
+    else
+      self.telnet.cmd(string) { |output| 
+        raise FAIL["Message"] if FAIL["Regexp"] === output
+        self.telnet.print("a\n") if /Next\ Entry/ === output
+        return true if SUCCESS === output 
+      }    
+    end
   end
   
   def disconect
@@ -41,13 +53,16 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def logout
-    send("logo")
-    disconect
-    self.logged_in= false
+    begin
+      send("logo")
+    rescue
+    ensure
+      self.logged_in= false
+    end
   end
   
   def reboot
-    self.print("reboot\ny")
+    send("String" => "reboot\ny", "DontWait" => true)
     disconnect
   end
   

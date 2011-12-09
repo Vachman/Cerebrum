@@ -1,11 +1,13 @@
 # encoding: utf-8
 require "./lib/netdev"
 require "./lib/snmpdev"
+require "net/telnet"
 Dir['./lib/devices/*.rb'].each { |file| require file }
 
 class Host < ActiveRecord::Base
   include NetDev
   include SnmpDev
+
 
   belongs_to :building
   belongs_to :device_type
@@ -23,11 +25,10 @@ class Host < ActiveRecord::Base
   
   before_save :update_information 
 
-                
+  attr_accessor :logged_in, :telnet
+         
   def update_information
-  #  p "Up if"
     if self.new_record? || self.hostname_changed?
-  #  p  'Up DT'
       update_device_type
     end
   end

@@ -41,13 +41,14 @@ module DLinkDes3028FastEthernetSwitch
     end
   end
   
-  def disconect
+  def disconnect
     logout if logged_in? 
     self.telnet.close if connected?
     self.telnet = false
   end
   
   def login
+    connect if not connected?
     self.telnet.login({"Name" => "oper", "Password" => "OblteL", "LoginPrompt" => /UserName:/, "PasswordPrompt" => /PassWord:/, "Timeout" => "1"}) { |out| raise 'Wrong username or password' if /Fail!/ === out }
     self.logged_in= true
   end
@@ -62,8 +63,10 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def reboot
-    send("String" => "reboot\ny", "DontWait" => true)
-    disconnect
+    if logged_in?
+      send("String" => "reboot\ny", "DontWait" => true)
+      disconnect
+    end
   end
   
   def upload_log

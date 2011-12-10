@@ -50,7 +50,7 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def login
-    connect if not connected
+    connect if not connected?
     self.telnet.login({"Name" => "oper", "Password" => "OblteL", "LoginPrompt" => /UserName:/, "PasswordPrompt" => /PassWord:/, "Timeout" => "1"}) { |out| raise 'Wrong username or password' if /Fail!/ === out }
     self.logged_in= true
   end

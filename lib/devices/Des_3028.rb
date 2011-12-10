@@ -2,6 +2,7 @@ module DLinkDes3028FastEthernetSwitch
   PROMPT = /DES\-3028:\d\#/
   SUCCESS = /Success./
   FAIL = { "Regexp" => /Fail!/, "Message" => "Fail!" }
+  AUTH_ERROR =  { "Regexp" => /Fail!\n\rUserName:/, "Message" => "Not authenticated!" }
   
   PORST_COUNT = 28
   
@@ -34,6 +35,7 @@ module DLinkDes3028FastEthernetSwitch
       self.telnet.print(string)
     else
       self.telnet.cmd(string) { |output| 
+        raise AUTH_ERROR["Message"] if AUTH_ERROR["Regexp"] === output
         raise FAIL["Message"] if FAIL["Regexp"] === output
         self.telnet.print("a\n") if /Next\ Entry/ === output
         return true if SUCCESS === output 
@@ -48,7 +50,7 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def login
-    connect if not connected?
+    connect if not connected
     self.telnet.login({"Name" => "oper", "Password" => "OblteL", "LoginPrompt" => /UserName:/, "PasswordPrompt" => /PassWord:/, "Timeout" => "1"}) { |out| raise 'Wrong username or password' if /Fail!/ === out }
     self.logged_in= true
   end
@@ -63,10 +65,8 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def reboot
-    if logged_in?
       send("String" => "reboot\ny", "DontWait" => true)
       disconnect
-    end
   end
   
   def upload_log

@@ -18,10 +18,13 @@ module DLinkDes3028FastEthernetSwitch
     
   # Connect to switch
   def connect
+      puts '-Connect'
       connected? ? "Already connected" : self.telnet = Net::Telnet.new("Host" => self.hostname, "Telnetmode" => false, "Prompt" => PROMPT, "Timeout" => 1 )  
   end
       
   def send(options)
+    puts '-Send'
+    
     connect if not connected?
     
     if options.kind_of?(Hash)
@@ -34,8 +37,11 @@ module DLinkDes3028FastEthernetSwitch
     if dontWait
       self.telnet.print(string)
     else
+      puts "-CMD #{string}"    
       self.telnet.cmd(string) { |output| 
+        puts "Output:\n #{output} \n  --END"
         raise AUTH_ERROR["Message"] if AUTH_ERROR["Regexp"] === output
+        puts '--2'
         raise FAIL["Message"] if FAIL["Regexp"] === output
         self.telnet.print("a\n") if /Next\ Entry/ === output
         return true if SUCCESS === output 
@@ -44,18 +50,21 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def disconnect
+    puts '-Disconnect'    
     logout if logged_in? 
     self.telnet.close if connected?
     self.telnet = false
   end
   
   def login
+    puts '-Login'      
     connect if not connected?
     self.telnet.login({"Name" => "oper", "Password" => "OblteL", "LoginPrompt" => /UserName:/, "PasswordPrompt" => /PassWord:/, "Timeout" => "2"}) { |out| raise 'Wrong username or password' if /Fail!/ === out }
     self.logged_in= true
   end
   
   def logout
+    puts '-Logout'   
     begin
       send("logo")
     rescue
@@ -65,6 +74,7 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def reboot
+    puts '-Reboot'    
       send("String" => "reboot\ny", "DontWait" => true)
       disconnect
   end

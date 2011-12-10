@@ -8,7 +8,6 @@ class Host < ActiveRecord::Base
   include NetDev
   include SnmpDev
 
-
   belongs_to :building
   belongs_to :device_type
 
@@ -47,23 +46,21 @@ class Host < ActiveRecord::Base
   
   
   def method_missing(key, *args)  
+      tries = 0
       begin
-        p "0 key- #{key}, args- #{args}"
-        p '1'
-        raise if self.respond_to?(key.to_s)
-        p '2'
-        return unless Module.constants.include?(self.module_name.to_sym)
-        p '3'
+#        p "0 key- #{key}, args- #{args}"
+        super if self.respond_to?(key.to_s)
+#        p '2'
+        return 'Module not implemented' unless Module.constants.include?(self.module_name.to_sym)
+#        p '3'
         eval("self.extend(#{self.module_name})")  
-        p "4 key- #{key}, args- #{args}"
-        p "self.#{key.to_s}(#{argv})"
-        return eval("self.#{key.to_s}(#{argv})") if self.respond_to?(key.to_s)
-        p '5'
+#        p "-- eval self.#{key.to_s}(#{args})"
+        return self.send(key,*args) if self.respond_to?(key.to_s)
+#        p '5'
         return  
-        p '6'
-      rescue
-        p '7'
-        super  
+#        p '6'
+      rescue => e
+        puts "Error - #{e.message}"
       end  
   end
 end

@@ -48,7 +48,7 @@ class Host < ActiveRecord::Base
   
   def method_missing(key, *args)  
       begin
-        p "4 key- #{key}, args- #{args}"
+        p "0 key- #{key}, args- #{args}"
         p '1'
         raise if self.respond_to?(key.to_s)
         p '2'
@@ -56,6 +56,7 @@ class Host < ActiveRecord::Base
         p '3'
         eval("self.extend(#{self.module_name})")  
         p "4 key- #{key}, args- #{args}"
+        p "self.#{key.to_s}(#{argv})"
         return eval("self.#{key.to_s}(#{argv})") if self.respond_to?(key.to_s)
         p '5'
         return  

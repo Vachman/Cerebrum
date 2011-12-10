@@ -56,7 +56,7 @@ class Host < ActiveRecord::Base
         p '3'
         eval("self.extend(#{self.module_name})")  
         p "4 key- #{key}, args- #{args}"
-        return eval("self.#{key.to_s}") if self.respond_to?(key.to_s)
+        return eval("self.#{key.to_s}(#{argv})") if self.respond_to?(key.to_s)
         p '5'
         return  
         p '6'

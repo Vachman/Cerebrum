@@ -55,6 +55,7 @@ ActiveAdmin.register Host do
     panel "Подробности" do
       attributes_table_for host do
         row("Hostname") { host.hostname }
+        row("MAC Адрес") { host.mac }
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
         row("Тестовый") { host.available?.to_s }
         row("Состояние") do  

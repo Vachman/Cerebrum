@@ -13,6 +13,11 @@ module SnmpDev
   end
   
   def sysDescr
-    get_value('sysDescr.0')    
+    get_value 'sysDescr.0'    
   end
+  
+  def get_mac
+    get_value 'SNMPv2-SMI::mib-2.17.1.1.0'
+  end
+
 end

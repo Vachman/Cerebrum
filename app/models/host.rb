@@ -29,6 +29,7 @@ class Host < ActiveRecord::Base
   def update_information
     if self.new_record? || self.hostname_changed?
       update_device_type
+      update_device_mac
     end
   end
   
@@ -43,10 +44,13 @@ class Host < ActiveRecord::Base
     end 
   end
   
+  def update_device_mac
+    self.mac = self.get_mac
+  end
+  
   
   
   def method_missing(key, *args)  
-      tries = 0
       begin
 #        p "0 key- #{key}, args- #{args}"
         super if self.respond_to?(key.to_s)

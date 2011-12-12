@@ -17,7 +17,7 @@ module SnmpDev
   end
   
   def get_mac
-    get_value 'SNMPv2-SMI::mib-2.17.1.1.0'
+    get_value 'IF-MIB::ifPhysAddress.1'
   end
 
 end

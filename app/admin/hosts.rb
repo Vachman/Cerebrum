@@ -24,9 +24,17 @@ ActiveAdmin.register Host do
       end
     end
   end
+
+  sidebar "Дополнительно", :only => :show do
+	  attributes_table_for host do
+			row("Cacti") { link_to "Статистика", "http://moon.obltelecom.ru/graph_view.php?action=preview&host_id=0&graph_template_id=2&filter=#{host.hostname}", :target => "_new" } 
+		end
+	end
   
   index do
-      column "IP", :hostname 
+      column "IP" do |host|
+					 link_to host.hostname, admin_host_path(host)
+			end 
       column "Устройство" do |host| 
           host.device_type.nil? ? (div :class => "center" do  '' end ) : host.device_type.model 
       end 
@@ -48,7 +56,10 @@ ActiveAdmin.register Host do
      #   status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
      #  end
      #end
-      default_actions
+  #  column  do |host|
+	#			link_to "Телнет", "telnet:#{host.hostname}"
+	#	 end
+     # default_actions
   end  
   
   show do
@@ -80,4 +91,9 @@ ActiveAdmin.register Host do
     end
     f.buttons
   end
+
+  action_item :only => [:show] do
+     link_to('Телнет',"telnet:#{resource.hostname}")
+  end
+
 end

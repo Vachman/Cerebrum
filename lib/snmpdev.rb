@@ -17,7 +17,7 @@ module SnmpDev
   end
   
   def get_mac
-    get_value 'IF-MIB::ifPhysAddress.1'
+    get_value 'IF-MIB::ifPhysAddress.1'.unpack("H2H2H2H2H2H2").join(":")
   end
 
 end

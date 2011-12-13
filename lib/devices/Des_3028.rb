@@ -49,6 +49,10 @@ module DLinkDes3028FastEthernetSwitch
     end
   end
   
+  def snmp_get_firmware
+    get_snmp_value 'RMON-MIB::rmon.19.2.0'
+  end
+  
   def disconnect
     puts '-Disconnect'    
     logout if logged_in? 

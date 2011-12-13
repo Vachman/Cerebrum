@@ -34,7 +34,7 @@ class Host < ActiveRecord::Base
     end
   end
 
-  def update_device_mac
+  def update_device_firmware
     self.firmware = self.snmp_get_firmware
   end
   

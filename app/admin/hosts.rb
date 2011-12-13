@@ -68,7 +68,7 @@ ActiveAdmin.register Host do
         row("Hostname") { host.hostname }
         row("MAC Адрес") { host.mac }
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
-        row("Тестовый") { host.available?.to_s }
+        row("Версия прошивки") { host.firmware }
         row("Состояние") do  
           if host.lastms.is_a?(Time) 
             status_tag (host.lastms > Time.now-2.minute ? 'Доступен' : 'Недоступен' ), 

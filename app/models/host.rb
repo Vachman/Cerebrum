@@ -30,7 +30,12 @@ class Host < ActiveRecord::Base
     if self.new_record? || self.hostname_changed?
       update_device_type
       update_device_mac
+      update_device_firmware
     end
+  end
+
+  def update_device_mac
+    self.firmware = self.snmp_get_firmware
   end
   
   def module_name  

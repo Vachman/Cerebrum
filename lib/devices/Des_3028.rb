@@ -50,7 +50,7 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def snmp_get_firmware
-    get_snmp_value 'RMON-MIB::rmon.19.2.0'
+    get_snmp_value '1.3.6.1.2.1.16.19.2.0'
   end
   
   def disconnect

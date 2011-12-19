@@ -18,7 +18,7 @@ module DLinkDes3028FastEthernetSwitch
     
   # Connect to switch
   def connect
-      #puts '-Connect'
+      puts "Connect to - #{self.hostname}"
       connected? ? "Already connected" : self.telnet = Net::Telnet.new("Host" => self.hostname, "Telnetmode" => false, "Prompt" => PROMPT, "Timeout" => 1 )  
   end
       
@@ -39,11 +39,10 @@ module DLinkDes3028FastEthernetSwitch
     else
       #puts "-CMD #{string}"    
       self.telnet.cmd(string) { |output| 
-        puts "Cmd: #{string} - Ok"
         raise AUTH_ERROR["Message"] if AUTH_ERROR["Regexp"] === output
         raise FAIL["Message"] if FAIL["Regexp"] === output
         self.telnet.print("a\n") if /Next\ Entry/ === output
-        puts "Cmd: #{string} - Ok" if SUCCESS === output 
+        puts "-- Cmd: #{string} - Ok" if SUCCESS === output 
       }    
     end
   end
@@ -76,8 +75,7 @@ module DLinkDes3028FastEthernetSwitch
     end
   end
   
-  def reboot
-    puts '-Reboot'    
+  def reboot    
       send_cmd "String" => "reboot\ny", "DontWait" => true
       disconnect
   end

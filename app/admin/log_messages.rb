@@ -16,9 +16,6 @@ ActiveAdmin.register LogMessage do
     end
     column "Устройство" do |log_message|; log_message.host ? link_to (log_message.host.name, admin_host_path(log_message.host)) : log_message.hostname; end
     column "Сообщение" do |log_message|; log_message.message; end
-    column "Стстус" do |log_message|
-      status_tag log_message.facility, (  log_message.facility.to_s == 'WARN' ? :error : :warning  )
-    end
   end
   
 

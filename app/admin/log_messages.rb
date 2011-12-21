@@ -15,7 +15,7 @@ ActiveAdmin.register LogMessage do
       status_tag log_message.facility, (  log_message.facility.to_s == 'WARN' ? :error : :warning  )
     end
     column "Устройство" do |log_message|
-      log_message.hostname 
+      log_message.hostname if !log_message.host.ia_a?(Host)
     end
     column "Сообщение" do |log_message|; log_message.message; end
   end

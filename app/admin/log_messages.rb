@@ -11,7 +11,7 @@ ActiveAdmin.register LogMessage do
   
   index do
     column "Дата" do |log_message|; log_message.created_at.strftime("%Y- %m-%d %H:%M:%S"); end
-    column "Устройство" do |log_message|; log_message.hostname; end
+    column "Устройство" do |log_message|; log_message.host ? link_to (host.name, admin_host_path(host)) : log_message.hostname; end
     column "Сообщение" do |log_message|; log_message.message; end
     column "Стстус" do |log_message|
       status_tag log_message.facility, (  log_message.facility.to_s == 'WARN' ? :error : :warning  )

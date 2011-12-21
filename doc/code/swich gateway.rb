@@ -44,3 +44,23 @@ File.open('/tmp/hosts').each_line { |host|
 	  puts error_hosts
 	end  
 }
+
+
+Thread.new do
+  File.open('/var/log/switches.log').each_line do |line|
+    log_time = Time.parse(line.split[0..2].join(' '))
+    hostname = line.split[3]
+    host = Host.find_by_hostname(hostname)
+    # Without time
+    if line.split[4].split('.').count.eql?(4) 
+      facility = line.split[5].chop
+      message = line.split[6..-1].join(' ')
+      puts "LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host}"
+      
+    else # With limestamp
+      facility = line.split[6].chop
+      message = line.split[7..-1].join(' ')
+      puts "-- LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host}"
+    end
+  end
+end

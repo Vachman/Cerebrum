@@ -11,6 +11,8 @@ class Host < ActiveRecord::Base
   belongs_to :building
   belongs_to :device_type
 
+  has_many :log_messages
+  
   validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
   

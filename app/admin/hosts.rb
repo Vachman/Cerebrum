@@ -39,7 +39,7 @@ ActiveAdmin.register Host do
           host.device_type.nil? ? (div :class => "center" do  '' end ) : host.device_type.model 
       end
       column "Логи" do |host|
-        host.log_messages.count.to_i
+        host.last.log_messages.count
       end 
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 

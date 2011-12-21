@@ -10,7 +10,7 @@ ActiveAdmin.register LogMessage do
   filter :created_at, :label => "Дате"
   
   index do
-    column "Время" do |log_message|; log_message.log_time; end
+    column "Время" do |log_message|; log_message.created_at; end
     column "Устройство" do |log_message|; log_message.hostname; end
     column "Сообщение" do |log_message|; log_message.message; end
     column "Стстус" do |log_message|

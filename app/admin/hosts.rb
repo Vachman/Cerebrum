@@ -38,7 +38,7 @@ ActiveAdmin.register Host do
       column "Устройство" do |host| 
           host.device_type.nil? ? (div :class => "center" do  '' end ) : host.device_type.model 
       end
-      column "Логи" do |host|
+      column "Логи" :sortable => true do |host|
         host.log_messages.count.to_s
       end 
       column "Состояние" do |host| 

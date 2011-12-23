@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221115050) do
+ActiveRecord::Schema.define(:version => 20111223081623) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20111221115050) do
     t.integer  "device_type_id"
     t.string   "mac"
     t.string   "firmware"
+    t.integer  "log_count"
   end
 
   create_table "housings", :force => true do |t|

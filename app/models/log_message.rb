@@ -21,7 +21,7 @@ class LogMessage < ActiveRecord::Base
         facility = line.split[6].chop
         message = line.split[7..-1].join(' ')
       end
-    #  host.update_attribute('log_count', host.log_count += 1) if !hots.nil?
+      host.update_attribute('log_count', host.log_count += 1) 
       LogMessage.create(:host => host, :log_time => log_time, :facility => facility, :message => message, :hostname => hostname)
     end
   end

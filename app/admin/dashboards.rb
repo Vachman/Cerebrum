@@ -8,7 +8,7 @@ ActiveAdmin::Dashboards.build do
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section
   #
-     section "Recent Posts" do     
+     section "Количество логов" do     
        table_for Host.order("log_count Desc").limit(10) do |t|
           t.column("IP Адрес") { |host| link_to host.name, admin_host_path(host)}
           t.column "Устройство" do |host|

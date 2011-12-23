@@ -25,7 +25,7 @@ ActiveAdmin::Dashboards.build do
           end
           t.column("Подъедз") { |host|  host.porch }
           t.column("Количество логов") do |host|
-            host.log_count 
+            host.log_count.to_s 
           end
        end
      end

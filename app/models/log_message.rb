@@ -17,11 +17,9 @@ class LogMessage < ActiveRecord::Base
       if line.split[4].split('.').count.eql?(4) 
         facility = line.split[5].chop
         message = line.split[6..-1].join(' ')
-      #  puts "LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host.id}"
       else # With limestamp
         facility = line.split[6].chop
         message = line.split[7..-1].join(' ')
-      #  puts "-- LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host.id}"
       end
     #  host.update_attribute('log_count', host.log_count += 1) if !hots.nil?
       LogMessage.create(:host => host, :log_time => log_time, :facility => facility, :message => message, :hostname => hostname)

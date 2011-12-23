@@ -9,6 +9,10 @@ ActiveAdmin::Dashboards.build do
   #
      section "Recent Posts" do
        ul do
+         Host.order("log_count Desc").limit(10).each do |host|
+            li link_to(host.name, admin_host_path(host))
+            li host.log_count
+         end
          
   #       Post.recent(5).collect do |post|
   #         li link_to(post.title, admin_post_path(post))

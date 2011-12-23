@@ -35,6 +35,10 @@ class Host < ActiveRecord::Base
       update_device_firmware
     end
   end
+  
+  def logs_count
+    self.log_messages.count.to_s
+  end
 
   def update_device_firmware
     self.firmware = self.snmp_get_firmware

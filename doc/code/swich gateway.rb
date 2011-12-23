@@ -45,6 +45,7 @@ File.open('/tmp/hosts').each_line { |host|
 	end  
 }
 
+ActiveRecord::Base.logger = nil
 
 Thread.new do
   File.open('/var/log/switches.log').each_line do |line|
@@ -55,12 +56,13 @@ Thread.new do
     if line.split[4].split('.').count.eql?(4) 
       facility = line.split[5].chop
       message = line.split[6..-1].join(' ')
-      puts "LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host}"
-      
+      puts "LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host.id}"
     else # With limestamp
       facility = line.split[6].chop
       message = line.split[7..-1].join(' ')
-      puts "-- LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host}"
+      puts "-- LogTime: #{log_time}, Hostname: #{hostname}, Facility: #{facility}, Message: #{message}, Host: #{host.id}"
     end
+    
+    LogMessage.create(:host => host, :log_time => log_time, :facility => facility, :message => message, :hostname => hostname)
   end
 end

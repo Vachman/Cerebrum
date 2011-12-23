@@ -24,8 +24,8 @@ ActiveAdmin::Dashboards.build do
             end
           end
           t.column("Подъедз") { |host|  host.porch }
-          t.column("Местонахождение") do |host| 
-            status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil? or host.location.empty?   
+          t.column("Количество логов") do |host|
+            host.log_count 
           end
        end
      end

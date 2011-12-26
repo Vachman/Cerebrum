@@ -80,8 +80,15 @@ ActiveAdmin.register Host do
             status_tag "Неизвестно", :title => "Сроду не видели"
           end
         end
-     end
+      end
     end
+    
+    table_for host.ports do |t|
+      t.column("Порт") { |port| port.name}
+      t.column("Состояние") do |port| 
+        status_tag "Up", :ok     
+      end  
+    end  
   end
   
   form do |f|

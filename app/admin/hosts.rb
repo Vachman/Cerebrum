@@ -83,7 +83,7 @@ ActiveAdmin.register Host do
       end
     end
     panel "Порты" do
-      table_for host.ports.order("name ASC") do |t|
+      table_for host.ports do |t|
         t.column("Порт") { |port| port.name}
         t.column("Состояние") do |port| 
           status_tag "Up", :ok     

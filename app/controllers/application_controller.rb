@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  def is_numeric?(s)
-      !!Float(s) rescue false
+  class String
+    def is_numeric?  
+      !!Float(self) rescue false    
+    end  
   end
 end

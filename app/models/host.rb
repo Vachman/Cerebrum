@@ -56,6 +56,12 @@ class Host < ActiveRecord::Base
     self.mac = self.get_mac
   end
   
+  class String
+    def is_numeric?  
+      !!Float(self) rescue false    
+    end  
+  end
+  
   
   
   def method_missing(key, *args)  

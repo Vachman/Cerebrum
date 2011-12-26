@@ -11,7 +11,7 @@ module DLinkDes3028FastEthernetSwitch
   end
   
   def create_ports
-    1.to(28) { |port_number|  self.ports << Port.create(:name => port_number)}
+    1.to(28) { |port_number|  self.ports << Port.create(:name => port_number.to_s)}
     1.to(2) { |port_number| self.ports << Port.create(:name => "#{24+port_number} Combo #{port_number}") }
   end
   

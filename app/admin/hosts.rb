@@ -86,7 +86,7 @@ ActiveAdmin.register Host do
       table_for host.ports do |t|
         t.column("Порт") { |port| port.name}
         t.column("Состояние") do |port| 
-          status_tag "Up", :ok     
+          status_tag port.status, :ok     
         end  
       end  
     end

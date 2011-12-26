@@ -108,7 +108,11 @@ module DLinkDes3028FastEthernetSwitch
 
   def testfunc
     puts 'Des 3028 '
-  end
+  end  
+end
 
-  
+module DLinkDes3028FastEthernetSwitch::Port
+  def status
+    'Fuck yea!'
+  end
 end

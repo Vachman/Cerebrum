@@ -82,13 +82,14 @@ ActiveAdmin.register Host do
         end
       end
     end
-    
-    table_for host.ports do |t|
-      t.column("Порт") { |port| port.name}
-      t.column("Состояние") do |port| 
-        status_tag "Up", :ok     
+    panel "Порты" do
+      table_for host.ports do |t|
+        t.column("Порт") { |port| port.name}
+        t.column("Состояние") do |port| 
+          status_tag "Up", :ok     
+        end  
       end  
-    end  
+    end
   end
   
   form do |f|

@@ -113,6 +113,6 @@ end
 
 module DLinkDes3028FastEthernetSwitch::Port
   def status
-    'Fuck yea!'
+    get_snmp_value "IF-MIB::ifOperStatus.#{self.name}"
   end
 end

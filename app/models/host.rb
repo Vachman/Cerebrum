@@ -56,10 +56,6 @@ class Host < ActiveRecord::Base
     self.mac = self.get_mac
   end
   
-
-  
-  
-  
   def method_missing(key, *args)  
       begin
 #        p "0 key- #{key}, args- #{args}"

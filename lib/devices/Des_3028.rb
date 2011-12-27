@@ -101,18 +101,22 @@ module DLinkDes3028FastEthernetSwitch
   def update_bootloader
   end
   
+  def port_status(port)
+  #  puts "IF-MIB::ifOperStatus.#{port}"
+    if port.is_numeric?
+      status = get_snmp_value "IF-MIB::ifOperStatus.#{port}"
+      'Up' if status == 1
+      'Down' if status == 2
+    else
+      'Unknown'
+    end
+  end
   
   def ports_count
     PORST_COUNT
   end
 
   def testfunc
-    puts 'Des 3028 '
+    puts 'Des 3028'
   end  
-end
-
-module DLinkDes3028FastEthernetSwitch::Port
-  def status
-    get_snmp_value "IF-MIB::ifOperStatus.#{self.name}" if self.name.is_numeric?
-  end
 end

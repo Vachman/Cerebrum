@@ -113,6 +113,6 @@ end
 
 module DLinkDes3028FastEthernetSwitch::Port
   def status
-    get_snmp_value "IF-MIB::ifOperStatus.#{self.name}"
+    get_snmp_value "IF-MIB::ifOperStatus.#{self.name}" if self.name.is_numeric?
   end
 end

@@ -67,9 +67,10 @@ ActiveAdmin.register Host do
   show do
     panel "Подробности" do
       attributes_table_for host do
-        row("Hostname") { host.hostname }
-        row("MAC Адрес") { host.mac }
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
+      # row("Hostname") { host.hostname }
+        row("MAC Адрес") { host.mac }
+  
         row("Версия прошивки") { host.firmware }
         row("Состояние") do  
           if host.lastms.is_a?(Time) 
@@ -86,7 +87,7 @@ ActiveAdmin.register Host do
       table_for host.ports do |t|
         t.column("Порт") { |port| port.name }
         t.column("Состояние") do |port| 
-          #status_tag port.status, :ok      
+          status_tag port.status, :ok      
           #status_tag port.status, ( port.status == 'Up' ? :ok : :warn )     
         end  
       end  

@@ -106,8 +106,8 @@ module DLinkDes3028FastEthernetSwitch
     if port.is_numeric?
       status = get_snmp_value "IF-MIB::ifOperStatus.#{port}"
       puts "Status is #{status}"
-      'Up' if status == 1
-      'Down' if status == 2
+      return 'Up' if status == '1'
+      return 'Down' if status == '2'
     else
       'Unknown'
     end

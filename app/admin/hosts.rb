@@ -11,6 +11,8 @@ ActiveAdmin.register Host do
   filter :hostname, :label => "IP"
   filter :building, :label => "Дом"
   filter :device_type, :label => "Устройство" 
+  filter :mac, :label => "Мак адрес" 
+  
   
  
   sidebar "Местонахождение", :only => :show do
@@ -35,6 +37,7 @@ ActiveAdmin.register Host do
       column "IP" do |host|
 					 link_to host.hostname, admin_host_path(host)
 			end 
+			column "MAC Адрес", :mac 
       column "Устройство" do |host| 
           host.device_type.nil? ? (div :class => "center" do  '' end ) : host.device_type.model 
       end

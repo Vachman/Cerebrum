@@ -9,9 +9,10 @@ ActiveAdmin.register Host do
   scope "Недоступные", :unavailable
   
   filter :hostname, :label => "IP"
+  filter :mac, :label => "Мак адресу" 
   filter :building, :label => "Дом"
   filter :device_type, :label => "Устройство" 
-  filter :mac, :label => "Мак адрес" 
+  
   
   
  
@@ -37,12 +38,11 @@ ActiveAdmin.register Host do
       column "IP" do |host|
 					 link_to host.hostname, admin_host_path(host)
 			end 
-			
+			column "Мак адрес", :mac
       column "Устройство" do |host| 
           host.device_type.nil? ? (div :class => "center" do  '' end ) : host.device_type.model 
       end
-      column "Логи", :log_count
-      
+      column "Логи", :log_count      
       column "Состояние" do |host| 
         if host.lastms.is_a?(Time) 
           status_tag (host.lastms > Time.now-2.minute ? 'Доступен' : 'Недоступен' ), 
@@ -61,11 +61,13 @@ ActiveAdmin.register Host do
      #   status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
      #  end
      #end
-  #  column  do |host|
-	#			link_to "Телнет", "telnet:#{host.hostname}"
-	#	 end
+     #  column  do |host|
+	   #			link_to "Телнет", "telnet:#{host.hostname}"
+	   #	 end
      # default_actions
   end  
+  
+  
   
   show do
     panel "Подробности" do

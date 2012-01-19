@@ -89,7 +89,7 @@ module DLinkDes3028FastEthernetSwitch
       disconnect
   end
   
-  def location
+  def snmp_location
     get_snmp_value '1.3.6.1.2.1.1.6.0'
   end
   

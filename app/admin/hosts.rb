@@ -68,7 +68,7 @@ ActiveAdmin.register Host do
     panel "Подробности" do
       attributes_table_for host do
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
-        row("Sys Location") { host.location }
+        row("Sys Location") { host.snmp_location }
         row("MAC Адрес") { host.mac }
         
         row("Версия прошивки") { host.firmware }

@@ -31,6 +31,7 @@ ActiveAdmin.register Building do
     panel "Оборудование" do
       table_for building.hosts do |t|
         t.column("IP Адрес") { |host| link_to host.name, admin_host_path(host)}
+        t.column("MAC") { |host| host.mac }
         t.column "Устройство" do |host|
           host.device_type.model unless host.device_type.nil? 
         end

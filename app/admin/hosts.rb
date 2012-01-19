@@ -9,7 +9,7 @@ ActiveAdmin.register Host do
   scope "Недоступные", :unavailable
   
   filter :hostname, :label => "IP"
-  filter :mac, :label => "Мак адресу" 
+  filter :mac, :label => "Mac адресу" 
   filter :building, :label => "Дом"
   filter :device_type, :label => "Устройство" 
   
@@ -38,7 +38,7 @@ ActiveAdmin.register Host do
       column "IP" do |host|
 					 link_to host.hostname, admin_host_path(host)
 			end 
-			column "Мак адрес", :mac
+			column "Mac адрес", :mac
       column "Устройство" do |host| 
           host.device_type.nil? ? (div :class => "center" do  '' end ) : host.device_type.model 
       end
@@ -74,7 +74,7 @@ ActiveAdmin.register Host do
       attributes_table_for host do
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
         row("Sys Location") { host.snmp_location }
-        row("MAC Адрес") { host.mac }
+        row("Mac Адрес") { host.mac }
         
         row("Версия прошивки") { host.firmware }
         row("Состояние") do  

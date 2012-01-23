@@ -14,7 +14,9 @@ class Host < ActiveRecord::Base
   has_many :log_messages
   has_many :ports,  :as => :device
   
-  validates_presence_of :hostname, :message => "Hostname can't be blank"
+  validates_presence_of :mac, :message => "Mac can't be blank"
+  validates_uniqueness_of :mac, :message => "Hostname must be unique"
+  #validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
   
   scope :roof, where('location = ?', 'Чердак')

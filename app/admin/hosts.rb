@@ -101,6 +101,7 @@ ActiveAdmin.register Host do
   
   form do |f|
     f.inputs do
+      f.input :mac, :label => "Mac адрес"
       f.input :hostname, :label => "IP"
       f.input :building, :label => "Дом"
       f.input :porch, :as => :select, :selected => f.object.porch.to_i, :collection => (1..20).to_a, :label => "Подъезд" 

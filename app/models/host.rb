@@ -18,10 +18,11 @@ class Host < ActiveRecord::Base
   validates_uniqueness_of :mac, :message => "Hostname must be unique"
   #validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
-  validates_format_of :mac, :with => /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/, :message => "mac is invalid"
-  validates_format_of :hostname, :with => /^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$/, :message => "mac is invalid"
+  validates_format_of :mac, :with => /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/, :message => "Mac is invalid"
+  validates_format_of :hostname, :with => /^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$/, :message => "Hostname is invalid", :allow_blank => true
   
-  
+  before_validation :format_mac, :only => [:mac]
+    
   scope :roof, where('location = ?', 'Чердак')
   scope :basement, where('location = ?', 'Подвал')
   
@@ -34,10 +35,13 @@ class Host < ActiveRecord::Base
 
   attr_accessor :logged_in, :telnet
          
+  def format_mac
+      self.mac.gsub!('-',':') if self.mac
+      self.mac.downcase! if self.mac
+  end
+  
   def update_information
-    self.mac.gsub!('-',':')
-    self.mac.downcase!
-
+  
     if self.new_record? || self.hostname_changed?
       update_device_type
 #      update_device_mac

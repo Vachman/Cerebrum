@@ -5,10 +5,16 @@ ActiveAdmin.register Client do
   scope "Организации", :companys
   scope "Частные", :individuals
   
+  filter :contract, :label => "№ договора"
+  filter :name, :label => "ФИО"
+  filter :building, :label => "Адресу"
+  
   index do
     column "Contract N", :contract
-    column :name
-    default_actions
+    column do |client|
+      link_to client.name, admin_client_path(client)
+    end
+    column "Адрес", :building
   end
   
   show do

@@ -66,9 +66,7 @@ ActiveAdmin.register Host do
 	   #	 end
      # default_actions
   end  
-  
-  
-  
+
   show do
     puts "Host Show"
     panel "Подробности" do
@@ -95,7 +93,10 @@ ActiveAdmin.register Host do
         t.column("Состояние") do |port|      
           status_tag "Up", :ok
           #  status_tag port.status, port.status_tag
-        end  
+        end 
+        t.column("Подключен") do |port|      
+           link_to ( port.member ? port.member.name : 'Соеденить' ), edit_admin_port_path(port)
+        end
       end  
     end
   end
@@ -106,7 +107,7 @@ ActiveAdmin.register Host do
       f.input :hostname, :label => "IP"
       f.input :building, :label => "Дом"
       f.input :porch, :as => :select, :selected => f.object.porch.to_i, :collection => (1..20).to_a, :label => "Подъезд" 
-      f.input :location, :as => :select, :collection => ["Чердак", "Подвал"], :label => "Местонахождение"     
+      f.input :location, :as => :select, :collection => ["Чердак", "Подвал", "Не определено"], :label => "Местонахождение"     
     end
     f.buttons
   end

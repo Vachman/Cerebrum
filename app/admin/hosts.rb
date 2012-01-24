@@ -56,7 +56,7 @@ ActiveAdmin.register Host do
          link_to host.building.name, admin_building_path(host.building) unless host.building.nil? 
       end
       column "Подъезд", :porch
-     column "Местонахождение" do |host|
+     column "Местонахождение", :sortable => :loaction  do |host|
        unless host.location.nil? 
         status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
        end

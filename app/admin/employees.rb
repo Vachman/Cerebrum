@@ -12,25 +12,22 @@ ActiveAdmin.register Employee do
       row("ФИО") { employee.name }
       row("Должность") { employee.position }
       row("Отдел") { employee.department }
+      row("Контакты") { employee.number }
     end
   end
   
-  sidebar "Контакты", :only => :show do
-    table_for employee.phones do |t|
-      t.column('') { |phone| phone.number }
-    end
-    link_to "Добавить", new_admin_phone_path( :owner_type => employee.class.name , :owner_id => employee.id )
-  end
+#  sidebar "Контакты", :only => :show do
+#   table_for employee.phones do |t|
+#      t.column('') { |phone| phone.number }
+#    end
+#    link_to "Добавить", new_admin_phone_path( :owner_type => employee.class.name , :owner_id => employee.id )
+#  end
   
   
   index do 
         column "ФИО", :name
-        column("Внутренний") { |employee|
-          employee.phones.internal.first.number if not employee.phones.internal.empty?
-        }
-        column("Телефон") { |employee| 
-          employee.phones.first.number if not employee.phones.first.nil? and employee.phones.first.number.length > 4
-        }
+        column "Телефон", :number 
+
         column "Должность", :position
     #    column "Отдел", :department, :sortable => false
         default_actions  

@@ -14,6 +14,8 @@ module SnmpDev
       end  
   end
   
+  
+  
   def sysDescr
     get_snmp_value 'sysDescr.0'    
   end

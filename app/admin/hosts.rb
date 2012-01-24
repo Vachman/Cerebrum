@@ -70,6 +70,7 @@ ActiveAdmin.register Host do
   
   
   show do
+    puts "Host Show"
     panel "Подробности" do
       attributes_table_for host do
         row("Устройство") { host.device_type.nil? ? '-' : host.device_type.name  }
@@ -91,9 +92,9 @@ ActiveAdmin.register Host do
     panel "Порты" do
       table_for host.ports do |t|
         t.column("Порт") { |port| port.name }
-        t.column("Состояние") do |port| 
-         # status_tag port.status, :ok      
-          status_tag "Up", :ok     
+        t.column("Состояние") do |port|      
+          status_tag "Up", :ok
+          #  status_tag port.status, port.status_tag
         end  
       end  
     end

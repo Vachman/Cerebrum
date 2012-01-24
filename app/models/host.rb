@@ -35,6 +35,8 @@ class Host < ActiveRecord::Base
 
   attr_accessor :logged_in, :telnet
          
+  
+         
   def format_mac
       self.mac.gsub!('-',':') if self.mac
       self.mac.downcase! if self.mac

@@ -24,7 +24,7 @@ ActiveAdmin.register Employee do
   
   
   index do 
-        column "ФИО" do |employee|
+        column "ФИО", :sortable => :name do |employee|
           link_to employee.name, admin_employee_path(employee)
         end
         column "Телефон", :number 

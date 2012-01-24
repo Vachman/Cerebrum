@@ -56,11 +56,11 @@ ActiveAdmin.register Host do
          link_to host.building.name, admin_building_path(host.building) unless host.building.nil? 
       end
       column "Подъезд", :porch
-     #column "Местонахождение" do |host|
-     #  unless host.location.nil? 
-     #   status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
-     #  end
-     #end
+     column "Местонахождение" do |host|
+       unless host.location.nil? 
+        status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning )
+       end
+     end
      #  column  do |host|
 	   #			link_to "Телнет", "telnet:#{host.hostname}"
 	   #	 end
@@ -95,7 +95,7 @@ ActiveAdmin.register Host do
           #  status_tag port.status, port.status_tag
         end 
         t.column("Подключен") do |port|      
-           link_to ( port.member ? port.member.name : 'Соеденить' ), edit_admin_port_path(port)
+          # link_to ( port.member ? port.member.name : 'Соеденить' ), edit_admin_port_path(port)
         end
       end  
     end

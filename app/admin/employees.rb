@@ -1,11 +1,8 @@
 # encoding: utf-8
-ActiveAdmin.register Employee, {:sort_order => :name} do
+ActiveAdmin.register Employee, { :sort_order => "name_asc" } do
   
   filter :name, :label => "ФИО" 
   filter :department, :label => "Отдел" 
-
-  
-  
   
   sidebar "Детали", :only => :show do
     attributes_table_for employee do 

@@ -1,6 +1,5 @@
 # encoding: utf-8
 ActiveAdmin.register Employee do
-  menu :parent => "Справочник", :priority => 2 
   
   filter :name, :label => "ФИО" 
   filter :department, :label => "Отдел" 

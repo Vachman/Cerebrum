@@ -1,5 +1,5 @@
 # encoding: utf-8
-ActiveAdmin.register Building do
+ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
   
   
   filter :name, :label => "Дому"

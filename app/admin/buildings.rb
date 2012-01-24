@@ -31,10 +31,12 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
   show :title => :page_title do
     panel "Общие сведения" do
        attributes_table_for building do
-          #row("Клиенты") { link_to 'xz', admin_clients_path( 'utf8' => '✓', 'q[building_id_eq]' => building.id }
+          row("Клиенты") { link_to "#{building.clients.count} шт", admin_clients_path( 'utf8' => '✓', 'q[building_id_eq]' => building.id) }
+          row("Оборудование") { link_to "#{building.hosts.count} шт", admin_hosts_path( 'utf8' => '✓', 'q[building_id_eq]' => building.id) }
+          
        end
     end
-    
+=begin    
     panel "Оборудование" do
       table_for building.hosts do |t|
         t.column("IP Адрес") { |host| link_to host.name, admin_host_path(host)}
@@ -57,7 +59,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
         end  
       end unless building.hosts.empty?
     end
-    link_to "Клиенты" , admin_clients_path( 'utf8' => '✓', 'q[building_id_eq]' => building.id ) 
+=end
   end  
   
 end

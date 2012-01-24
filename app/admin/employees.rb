@@ -27,9 +27,8 @@ ActiveAdmin.register Employee do
   index do 
         column "ФИО", :name
         column "Телефон", :number 
-
+        column "Email", :email
         column "Должность", :position
-    #    column "Отдел", :department, :sortable => false
         default_actions  
   end
   
@@ -41,6 +40,8 @@ ActiveAdmin.register Employee do
   form :title => :page_title do |f| 
     f.inputs "Подробнее" do
       f.input :name, :label => "ФИО"  
+      f.input :number, :label => "Телефон"
+      f.input :email, :label => "Email"  
       f.input :position, :label => "Должность" 
       f.input :department, :label => "Отдел" 
     end   

@@ -24,11 +24,12 @@ ActiveAdmin.register Employee do
   
   
   index do 
-        column "ФИО", :name
+        column "ФИО" do |employee|
+          link_to employee.name, admin_employee_path(employee)
+        end
         column "Телефон", :number 
         column "Email", :email
-        column "Должность", :position
-        default_actions  
+        column "Должность", :position 
   end
   
   show :title => :page_title do    

@@ -1,10 +1,10 @@
 # encoding: utf-8
-ActiveAdmin.register Region do
+ActiveAdmin.register Region, { :sort_order => "name_asc" } do
   
   
   filter :server, :label => "Сервер" 
   
-  index do
+  index  do
     column "Название" do  |region|
      link_to region.name, admin_region_path(region)
     end

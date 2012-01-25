@@ -8,6 +8,9 @@ ActiveAdmin.register Region, { :sort_order => "name_asc" } do
     column "Название", :sortable => :name do |region|
      link_to region.name, admin_region_path(region)
     end
+    column "Сервер" do |region|
+     link_to region.server.name, admin_server_path(region.server) unless region.server.nil?
+    end
     column("Вланы") do |region| 
       vlans = ""
       region.vlans.each_with_index { |vlan,index|  vlans << ( index.eql?(0) ? '' : ', ' ) << "#{vlan.name}" }

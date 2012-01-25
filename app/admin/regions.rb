@@ -1,5 +1,9 @@
 # encoding: utf-8
 ActiveAdmin.register Region do
+  
+  
+  filter :server, :label => "Сервер" 
+  
   index do
     column "Название" do  |region|
      link_to region.name, admin_region_path(region)
@@ -15,9 +19,8 @@ ActiveAdmin.register Region do
   form do |f|
     f.inputs "Детали" do
       f.input :name
-      f.input :server, :include_blank => false 
-    end
-        
+      f.input :server, :as => :select, :collection => Server.where('role = ?', "Шлюз")
+    end     
     f.has_many :vlans do |i|
       i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?
       i.input :name, :label => "Тэг"

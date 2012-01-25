@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124204909) do
+ActiveRecord::Schema.define(:version => 20120125071033) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -165,6 +165,9 @@ ActiveRecord::Schema.define(:version => 20120124204909) do
     t.datetime "lastms"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "port"
+    t.integer  "building_id"
+    t.string   "role"
   end
 
   create_table "services", :force => true do |t|

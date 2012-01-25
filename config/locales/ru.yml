@@ -1,5 +1,9 @@
 ru:
   active_admin:
+    region: "Регион"
+    regions: "Регионы"
+    port: "Порт"
+    ports: "Порты"
     admin: "Админ"
     client: "Клиент"
     clients: "Клиенты"

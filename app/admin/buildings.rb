@@ -3,6 +3,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
   
   
   filter :name, :label => "Дому"
+  filter :region, :label => "Региону"
 
   sidebar "Дом", :only => :show do
     attributes_table_for building do
@@ -23,6 +24,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
   form do |f|
     f.inputs do
       f.input :name, :label => "Дом"
+      f.input :region, :label => "Регион"
       f.input :housing, :label => "ЖКХ"
     end
     f.buttons

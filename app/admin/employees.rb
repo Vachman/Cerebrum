@@ -42,7 +42,7 @@ ActiveAdmin.register Employee, { :sort_order => "name_asc" } do
       f.input :email, :label => "Email"  
       f.input :position, :label => "Должность" 
       f.input :department, :label => "Отдел" 
-    end   
+    end       
     f.buttons
   end
     

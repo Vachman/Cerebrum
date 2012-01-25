@@ -1,5 +1,5 @@
 # encoding: utf-8
-ActiveAdmin.register Employee, { :sort_order => "name_asc" } do
+ActiveAdmin.register Employee, { :sort_order => "position_asc" } do
   
   filter :name, :label => "ФИО" 
   filter :department, :label => "Отдел" 

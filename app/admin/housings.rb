@@ -15,5 +15,30 @@ ActiveAdmin.register Housing do
         row("Контакты") { housing.phone }
       end
     end
+    panel "Номера телефонов" do
+      table_for housing.phones do |t|
+        t.column("Описание") { |phone| phone.name }
+        t.column("Номер") { |phone| phone.number }
+      end
+    end
+    
+    panel "Дома" do
+      table_for housing.buildings do |t|
+        t.column("Адрес") { |building| link_to building.name, admin_building_path(building)  }
+      end
+    end
   end
+  
+  form do |f|
+    f.inputs "Детали" do
+      f.input :name
+    end     
+    f.has_many :phones do |i|
+      i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?
+      i.input :name, :label => "Описание", :as => :select, :collection => ["Диспетчерская", "Ведущий инженер", "Начальник участка", "Электрик"]
+      i.input :number, :label => "Номер"
+    end
+    f.buttons
+  end
+
 end

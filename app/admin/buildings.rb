@@ -8,7 +8,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
   sidebar "Дом", :only => :show do
     attributes_table_for building do
       row("Дом") { link_to building.name, "http://maps.yandex.ru/?text=#{building.name}",{ :target => "_new", :title => "Показать на карте" } }
-      row("Контакты ЖКХ") { building.housing.phone unless building.housing.nil? } 
+      row("Контакты Диспетчерская ") { building.housing.phone unless building.housing.nil? } 
     end
   end
 
@@ -16,8 +16,8 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
     column "Дом", :sortable => :name do |building|
       link_to building.name, admin_building_path(building)
     end
-    column "Контакты ЖКХ" do |building|
-      building.housing.nil? ? "-" : building.housing.phone
+    column "Диспетчерская " do |building|
+      building.housing.nil? ? "-" : (link_to building.housing.name, admin_housing_path(building.housing))
     end
   end
   
@@ -25,7 +25,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
     f.inputs do
       f.input :name, :label => "Дом"
       f.input :region, :label => "Регион"
-      f.input :housing, :label => "ЖКХ"
+      f.input :housing, :label => "Диспетчерская"
     end
     f.buttons
   end
@@ -38,7 +38,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
           
        end
     end
-=begin    
+    
     panel "Оборудование" do
       table_for building.hosts do |t|
         t.column("IP Адрес") { |host| link_to host.name, admin_host_path(host)}
@@ -60,8 +60,8 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
           status_tag host.location, ( host.location.eql?('Чердак') ? :ok : :warning ) unless host.location.nil? or host.location.empty?   
         end  
       end unless building.hosts.empty?
+      link_to "Добавить оборудование", new_admin_host_path( 'settings' => { 'building_id' => building })
     end
-=end
   end  
   
 end

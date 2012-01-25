@@ -115,5 +115,11 @@ ActiveAdmin.register Host do
   action_item :only => [:show] do
      link_to('Телнет',"telnet:#{resource.hostname}")
   end
+  
+  controller do
+    def new
+      @resource = Host.new(params[:settings])
+    end
+  end
 
 end

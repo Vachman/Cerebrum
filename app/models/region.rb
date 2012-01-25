@@ -7,5 +7,9 @@ class Region < ActiveRecord::Base
   
   validates_presence_of :name, :message => "can't be blank"
   validates_presence_of :server, :message => "can't be blank"
-  
+    
+  def page_title
+    self.name
+  end
+
 end

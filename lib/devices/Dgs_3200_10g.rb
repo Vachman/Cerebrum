@@ -1,5 +1,5 @@
 module Dgs320010GigabitEthernetSwitch
-PROMT = /^DES-3028:\d\#$/
+PROMT = /DGS\-3200\-10:\d\#/
 SUCCESS = 'Success.'
 FAIL = 'Fail!'
 PORST_COUNT = 10

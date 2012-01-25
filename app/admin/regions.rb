@@ -41,7 +41,7 @@ ActiveAdmin.register Region, { :sort_order => "name_asc" } do
     end
     panel "Дома" do
       table_for region.buildings do |t|
-        t.column("Дом") { |building| building.name }
+        t.column("Дом") { |building| link_to building.name, admin_building_path(building) }
        end
     end  
     panel "Вланы" do

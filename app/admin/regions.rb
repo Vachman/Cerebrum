@@ -5,7 +5,7 @@ ActiveAdmin.register Region, { :sort_order => "name_asc" } do
   filter :server, :label => "Сервер" 
   
   index  do
-    column "Название" do  |region|
+    column "Название", :sortable => :name do |region|
      link_to region.name, admin_region_path(region)
     end
     column("Вланы") do |region| 

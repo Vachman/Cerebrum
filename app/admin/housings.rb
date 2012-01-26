@@ -4,7 +4,7 @@ ActiveAdmin.register Housing do
   
   index do
     column :name
-    column :phone
+#    column :phone
     default_actions
   end
   
@@ -12,7 +12,7 @@ ActiveAdmin.register Housing do
     panel "Подробности" do
       attributes_table_for housing do
         row("Название") { housing.name }
-        row("Контакты") { housing.phone }
+#        row("Контакты") { housing.phone }
       end
     end
     panel "Номера телефонов" do
@@ -35,7 +35,7 @@ ActiveAdmin.register Housing do
     end     
     f.has_many :phones do |i|
       i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?
-      i.input :name, :label => "Описание", :as => :select, :collection => ["Диспетчерская", "Ведущий инженер", "Начальник участка", "Электрик"]
+      i.input :name, :label => "Описание", :as => :select, :collection => [ "Аварийная", "Диспетчерская", "Ведущий инженер", "Начальник участка", "Электрик"]
       i.input :number, :label => "Номер"
     end
     f.buttons

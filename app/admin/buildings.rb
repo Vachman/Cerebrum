@@ -8,7 +8,15 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
   sidebar "Дом", :only => :show do
     attributes_table_for building do
       row("Дом") { link_to building.name, "http://maps.yandex.ru/?text=#{building.name}",{ :target => "_new", :title => "Показать на карте" } }
-      row("Контакты Диспетчерская ") { building.housing.phone unless building.housing.nil? } 
+      row("ЖКХ") { building.housing unless building.housing.nil? } 
+    end
+  end
+  
+  sidebar "Контакты", :only => :show do
+    attributes_table_for building do
+      building.phones.each do |phone|
+        row("#{phone.name}") { phone.number }
+      end
     end
   end
 
@@ -27,6 +35,11 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
       f.input :region, :label => "Регион"
       f.input :housing, :label => "Диспетчерская"
     end
+    f.has_many :phones do |i|
+      i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?
+      i.input :name, :label => "Описание"
+      i.input :number, :label => "Номер"
+    end
     f.buttons
   end
   
@@ -35,7 +48,6 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
        attributes_table_for building do
           row("Клиенты") { link_to "#{building.clients.count} шт", admin_clients_path( 'utf8' => '✓', 'q[building_id_eq]' => building.id) }
           row("Оборудование") { link_to "#{building.hosts.count} шт", admin_hosts_path( 'utf8' => '✓', 'q[building_id_eq]' => building.id) }
-          
        end
     end
     

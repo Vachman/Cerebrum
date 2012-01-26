@@ -24,7 +24,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
     column "Дом", :sortable => :name do |building|
       link_to building.name, admin_building_path(building)
     end
-    column "Диспетчерская " do |building|
+    column "ЖКХ " do |building|
       building.housing.nil? ? "-" : (link_to building.housing.name, admin_housing_path(building.housing))
     end
   end
@@ -33,7 +33,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
     f.inputs do
       f.input :name, :label => "Дом"
       f.input :region, :label => "Регион"
-      f.input :housing, :label => "Диспетчерская"
+      f.input :housing, :label => "ЖКХ"
     end
     f.has_many :phones do |i|
       i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?

@@ -19,6 +19,7 @@ ActiveAdmin.register Housing do
       table_for housing.phones do |t|
         t.column("Описание") { |phone| phone.name }
         t.column("Номер") { |phone| phone.number }
+        t.column("Коментарий") { |phone| phone.description }  
       end
     end
     
@@ -34,9 +35,10 @@ ActiveAdmin.register Housing do
       f.input :name
     end     
     f.has_many :phones do |i|
-      i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?
+      i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?  
       i.input :name, :label => "Описание", :as => :select, :collection => [ "Аварийная", "Диспетчерская", "Ведущий инженер", "Начальник участка", "Электрик"]
       i.input :number, :label => "Номер"
+      i.input :description, :label => "Коментарий"
     end
     f.buttons
   end

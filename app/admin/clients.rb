@@ -17,12 +17,29 @@ ActiveAdmin.register Client do
     column "Адрес", :building
   end
   
-  show do
-    attributes_table :contract, :name
-    
-    
-    active_admin_comments
+  
+  form do |f|
+    f.inputs "Детали" do
+      f.input :name
+      f.input :contract
+    end     
+    f.has_many :devices do |i|
+      i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?
+      i.input :name, :label => "Название"
+      i.input :device_type, :label => "Тип устройства" ,:as => :select, :collection => [ "Ноутбук", "Компьютер", "Роутер", "Свич", "VoIp модем", "ТВ приставка", "Телефон", "Планшет" ]
+    end
+    f.buttons
   end
   
-
+  show do
+    attributes_table :contract, :name
+    panel "Устройства" do
+      attributes_table_for client do 
+        client.devices.each do |device|
+          row(device.device_type) { device.name }
+        end
+      end
+    end
+    active_admin_comments
+  end
 end

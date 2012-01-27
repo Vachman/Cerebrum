@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125174639) do
+ActiveRecord::Schema.define(:version => 20120127083423) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(:version => 20120125174639) do
     t.string   "model"
   end
 
+  create_table "devices", :force => true do |t|
+    t.string   "name"
+    t.string   "device_type"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "devices", ["device_type"], :name => "index_devices_on_device_type_id"
+
   create_table "employees", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -106,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20120125174639) do
     t.string   "mac"
     t.string   "firmware"
     t.integer  "log_count"
+    t.integer  "port_id"
   end
 
   create_table "housings", :force => true do |t|
@@ -145,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20120125174639) do
     t.integer  "owner_id"
     t.string   "owner_type"
     t.string   "name"
+    t.string   "description"
   end
 
   create_table "ports", :force => true do |t|

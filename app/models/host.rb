@@ -11,14 +11,22 @@ class Host < ActiveRecord::Base
   belongs_to :building
   belongs_to :device_type
 
+  belongs_to :uplink_port, :class_name => "Port", :foreign_key => "port_id"
+
+  has_one :uplink, :through => :uplink_port, :source => :link 
+  accepts_nested_attributes_for :uplink, :allow_destroy => true
+  
+
   has_many :log_messages
   has_many :ports,  :as => :device, :dependent => :destroy
   
-  validates_presence_of :mac, :message => "Mac can't be blank"
+  
+  
+  #validates_presence_of :mac, :message => "Mac can't be blank"
   validates_uniqueness_of :mac, :message => "Hostname must be unique"
   #validates_presence_of :hostname, :message => "Hostname can't be blank"
   validates_uniqueness_of :hostname, :message => "Hostname must be unique"
-  validates_format_of :mac, :with => /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/, :message => "Mac is invalid"
+  validates_format_of :mac, :with => /^(\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2}:\S{1,2})?$/, :message => "Mac is invalid", :allow_blank => true
   validates_format_of :hostname, :with => /^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$/, :message => "Hostname is invalid", :allow_blank => true
   
   before_validation :format_mac, :only => [:mac]

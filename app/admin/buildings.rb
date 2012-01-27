@@ -33,7 +33,7 @@ ActiveAdmin.register Building, { :sort_order => "name_asc" }  do
     f.inputs do
       f.input :name, :label => "Дом"
       f.input :region, :label => "Регион"
-      f.input :housing, :label => "ЖКХ"
+      f.input :housing, :label => "ЖКХ  "
     end
     f.has_many :phones do |i|
       i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?

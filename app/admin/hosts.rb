@@ -109,6 +109,17 @@ ActiveAdmin.register Host do
       f.input :porch, :as => :select, :selected => f.object.porch.to_i, :collection => (1..20).to_a, :label => "Подъезд" 
       f.input :location, :as => :select, :collection => ["Чердак", "Подвал", "Не определено"], :label => "Местонахождение"     
     end
+    
+    f.inputs "Uplink" do    
+      f.input :uplink_port, :label => "C порта:", :as => :select, :collection => f.object.ports, :remote => true, :input_html => { :onchange => "alert('sasa');"} 
+      
+      f.semantic_fields_for :uplink do |i|
+        i.inputs
+      end
+    #  f.input :link, :label => "На свич" , :as => :select, :collection => Host.all
+    #  f.input :host_port, :label => "К порту" , :as => :select, :collection => []
+    end
+    
     f.buttons
   end
 

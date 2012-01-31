@@ -8,6 +8,8 @@ gem 'activeadmin', '0.3.4'
 gem "cancan"
 gem 'whenever'
 gem 'net-ping'
+gem "haml"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,8 +34,9 @@ gem "rspec-rails", :group => [:test, :development]
 gem 'therubyracer'
 
 group :test do
-  gem 'turn', :require => false
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
 end

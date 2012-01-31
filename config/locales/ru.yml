@@ -1,5 +1,13 @@
 ru:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Неправильная запись"
   active_admin:
+    service: "Услуга"
+    services: "Услуги"
+    order: "Подключение"
+    orders: "Подключения"
     region: "Регион"
     regions: "Регионы"
     port: "Порт"

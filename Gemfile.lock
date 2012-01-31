@@ -38,7 +38,6 @@ GEM
       activesupport (= 3.1.1)
     activesupport (3.1.1)
       multi_json (~> 1.0)
-    ansi (1.4.1)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
@@ -91,6 +90,10 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.5.4)
       guard (>= 0.8.4)
+    guard-spork (0.4.1)
+      guard (>= 0.8.4)
+      spork (>= 0.8.4)
+    haml (3.1.4)
     has_scope (0.5.1)
     highline (1.6.8)
     hike (1.2.1)
@@ -208,6 +211,7 @@ GEM
     sexp_processor (3.0.7)
     slop (2.1.0)
     snmp (1.0.4)
+    spork (1.0.0rc1)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -219,8 +223,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    turn (0.8.3)
-      ansi
     tzinfo (0.3.31)
     uglifier (1.0.4)
       execjs (>= 0.3.0)
@@ -250,6 +252,8 @@ DEPENDENCIES
   factory_girl_rails
   growl
   guard-rspec
+  guard-spork
+  haml
   jquery-rails
   mysql2
   net-ping
@@ -260,8 +264,8 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.1.4)
   snmp
+  spork (> 0.9.0.rc)
   therubyracer
-  turn
   uglifier (>= 1.0.3)
   unicorn
   whenever

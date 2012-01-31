@@ -3,7 +3,7 @@ module DLinkDes3010gFastEthernetSwitch
   SUCCESS = 'Success.'
   FAIL = 'Fail!'
   PORST_COUNT = 10
-
+  
   def ports_count
     PORST_COUNT
   end

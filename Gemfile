@@ -10,6 +10,11 @@ gem 'whenever'
 gem 'net-ping'
 gem "haml"
 
+gem 'daemons'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
+gem 'jquery_datepicker'
+gem 'russian'
 
 # Gems used only for assets and not required
 # in production environments by default.

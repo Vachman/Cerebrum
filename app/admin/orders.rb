@@ -1,16 +1,66 @@
 # encoding: utf-8  
 ActiveAdmin.register Order do
   menu :label => "Подключения" 
+  
+  scope :all
+  scope 'Новые' ,:new_orders
+  scope 'Обработанные', :processed_orders
+  scope 'Завершенные', :completed_orders 
+  
+  filter :due_date, :label => "Дата подключения"
+=begin
+  TODO сделать чтоб можно было фильтровать по услугам
+=end
+ 
+  index do
+    column "Клиент" do |order|
+      link_to order.name, admin_order_path(order)
+    end
+    column "Контакты", :contact
+    column "Дата подключения", :due_date
+    column "Состояние" do |order|
+      status_tag order.status, order.status_tag
+    end
+  end
+  
+  show do
+    panel "Общие" do
+      attributes_table_for order do 
+        row("Состояние") { status_tag order.status, order.status_tag }
+        row("Клиент") { order.name+( order.company.eql?('1') ? ' (Физ. лицо)' : '' ) }
+        row("Контакты") { order.contact }
+        row("Адрес") { order.address }
+        row("Время подключения") { order.due_date.strftime('%d-%m-%Y   ')+' в '+order.due_time.strftime('%H:%M') }
+      end
+    end    
+    panel "Услуги" do  
+      table_for order.services.order("category desc") do |t|
+        t.column("Услуга") { |service| service.name }
+        t.column("Цена") { |service| service.price.to_s+' руб.' }
+        t.column("Категория") { |service| service.category }
+      end
+      attributes_table_for order do
+        row("ИТОГО:") { order.services.sum(:price).to_s+' руб.' }
+      end
+    end  
+    active_admin_comments
+  end
+  
   form do |f|
     f.inputs "Детали" do
-      f.input :name
-      f.input :contact
-      f.input :address
-      f.input :due_date
-      f.input :status, :as => :select, :collection => ["Новый", "Обработан", "Подключен"]  
+      f.input :company, :label => "Физ. лицо", :as => :boolean
+      f.input :name, :label => 'Клиент'
+      f.input :contact, :label => 'Контакты'
+      f.input :address, :label => 'Адрес'
+      f.input :due_date, :label => "Дата подключения", :as => :datepicker
+      f.input :due_time, :label => "Время подключения", :as => :time
+      f.input :status, :label => "Состояние" ,:as => :select, :collection => ["Новый", "Обработан", "Завершен"], :selected =>  "Новый"
+=begin
+  TODO Сделать так чтоб автоматом выбираллось существующее значение а если его нет то новый
+=end
     end     
     f.has_many :order_services do |i|
-      i.input :_destroy, :as => :boolean, :label => "delete" unless i.object.id.nil?  
+      i.input :_destroy, :as => :boolean, :label => "Удалить" unless i.object.id.nil?  
       i.input :service, :label => "услуга", :as => :select, :collection => Service.all
     end
     f.buttons

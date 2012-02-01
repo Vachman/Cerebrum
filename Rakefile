@@ -26,7 +26,7 @@ else
     notes:custom rails:template rails:update routes secret stats test 
     test:recent test:uncommitted time:zones:all tmp:clear tmp:create
   ).each do |task_name|
-    task task_name do
+    task == task_name do
       load_rails_environment
       # Explicitly invoke the rails environment task so that all configuration
       # gets loaded before the actual task (appended on to this one) runs.

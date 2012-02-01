@@ -6,6 +6,9 @@ Cerebrum::Application.routes.draw do
 
   root  :to => 'admin#index'
 
+  match "/delayed_job" => DelayedJobWeb, :anchor => false
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

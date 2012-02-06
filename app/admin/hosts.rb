@@ -12,9 +12,7 @@ ActiveAdmin.register Host do
   filter :mac, :label => "Mac адресу" 
   filter :building, :label => "Дом"
   filter :device_type, :label => "Устройство" 
-  
-  
-  
+
  
   sidebar "Местонахождение", :only => :show do
     attributes_table_for host do

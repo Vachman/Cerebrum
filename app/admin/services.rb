@@ -4,11 +4,12 @@ ActiveAdmin.register Service do
   
  
   scope "Доступные", :in_stock, :default => true 
-  scope "Интернет", :internet
-  scope "Телефония", :telephony
-  scope "Телевидение", :tv
+  #scope "Интернет", :internet
+  #scope "Телефония", :telephony
+  #scope "Телевидение", :tv
   scope :all
   
+  filter :service_category, :label => "Категория"
   filter :price, :label => "Цена"
   
   index do
@@ -16,7 +17,7 @@ ActiveAdmin.register Service do
       link_to service.name, admin_service_path(service) 
     end
     column "Цена", :price
-    column "Категория", :category
+    column "Категория", :service_category
     column "Состояние" do |service|
       status_tag service.status_name, service.status_tag
     end
@@ -36,6 +37,7 @@ ActiveAdmin.register Service do
   form do |f|
     f.inputs "Детали" do
       f.input :in_stock, :label => 'Доступен', :as => :boolean
+      f.input :service_category, :label => "Категория", :as => :select, :collection => ServiceCategory.all 
       f.input :category, :label => "Категория",  :as => :select, :collection => [ "Интернет", "Телефония", "Телевидение", "Установка"] 
       f.input :name, :label => "Название" 
       f.input :price, :label => "Стоимость" 

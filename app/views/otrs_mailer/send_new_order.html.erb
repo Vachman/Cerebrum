@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Заявка на подключение</h1>
+		<p><b>Клиент: </b><%= @order.name+( @order.company.eql?('1') ? ' (Юр.лицо)' : '' )%></p>
+		<p><b>Контакты: </b><%= @order.contact %></p>
+		<p><b>Адрес: </b><%= @order.address %></p>
+		<p><b>Дата подключения: </b><%= (@order.due_date ? @order.due_date.strftime('%d-%m-%Y') : '')+( @order.due_time ? ' в '+ @order.due_time.strftime('%H:%M') : '') %></p>
+	<table border="0" cellspacing="5" cellpadding="2">
+  	<tr>
+			<th>Категория</th>
+			<th>Цена</th>
+  		<th>Услуга</th>
+		</tr>
+  	<% @order.services.order("category desc").each do |service| %>
+			<tr>
+				<td><%= service.category %></td>
+				<td><%= service.price.to_s+' руб.' %></td>
+				<td><%= service.name %></td>
+			</tr>
+  	<% end %>
+		</table>
+		<p><b>ИТОГО:</b> <%= @order.services.sum(:price).to_s+' руб.' %></p>
+    <p><%= link_to 'Ссылка на подключение', admin_order_url(@order) %></p>
+  </body>
+</html>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>../spec/models/employee_spec.rb</string>
+	<string>../app/admin/orders.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -18,59 +18,101 @@
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
-	<integer>201</integer>
+	<integer>288</integer>
 	<key>metaData</key>
 	<dict>
+		<key>../Gemfile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>7</integer>
+		</dict>
+		<key>../Rakefile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>28</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>12</integer>
+		</dict>
+		<key>../app/admin/clients.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>5</integer>
+				<key>line</key>
+				<integer>50</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>34</integer>
+		</dict>
 		<key>../app/admin/employees.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>20</integer>
 				<key>line</key>
-				<integer>27</integer>
+				<integer>39</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>13</integer>
 		</dict>
-		<key>../app/admin/housings.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>51</integer>
-				<key>line</key>
-				<integer>19</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>11</integer>
-		</dict>
-		<key>../app/models/building.rb</key>
+		<key>../app/admin/hosts.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>14</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../app/models/employee.rb</key>
+		<key>../app/admin/orders.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>128</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>66</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>41</integer>
+		</dict>
+		<key>../app/admin/phones.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>14</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
@@ -81,17 +123,59 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>24</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>10</integer>
+				<integer>14</integer>
 			</dict>
+		</dict>
+		<key>../app/admin/services.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>49</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../app/controllers/application_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>39</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../app/mailers/otrs_mailer.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>20</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>../app/models/host.rb</key>
 		<dict>
@@ -102,6 +186,90 @@
 				<key>line</key>
 				<integer>6</integer>
 			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>54</integer>
+		</dict>
+		<key>../app/models/order.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../app/models/service.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>51</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../app/views/otrs_mailer/send_new_order.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>123</integer>
+				<key>line</key>
+				<integer>10</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../config/locales/ru.yml</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>21</integer>
+				<key>line</key>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../config/locales/time.ru.yml</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../config/routes.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>16</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
@@ -111,38 +279,24 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>31</integer>
+				<integer>10</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>8</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>21</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>8</integer>
 			</dict>
 		</dict>
-		<key>../app/models/housing.rb</key>
+		<key>../db/migrate/20120131133827_change_order_columns.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>33</integer>
-				<key>line</key>
-				<integer>5</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../app/models/link.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
+				<integer>35</integer>
 				<key>line</key>
 				<integer>3</integer>
 			</dict>
@@ -151,255 +305,21 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../app/models/phone.rb</key>
+		<key>../db/migrate/20120201095723_change_order_due_date.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>40</integer>
 				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>42</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-		</dict>
-		<key>../app/models/port.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>4</integer>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../app/models/region.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>2</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>17</integer>
-				<key>line</key>
-				<integer>2</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>2</integer>
-			</dict>
-		</dict>
-		<key>../db/migrate/20120124122322_create_table_links.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>5</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../db/migrate/20120125174639_create_links.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../lib/devices/Des_3010g.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>11</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../lib/devices/Des_3028.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>5</integer>
-				<key>line</key>
-				<integer>15</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-		</dict>
-		<key>../lib/devices/Des_3028g.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>5</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../lib/devices/Des_3028p.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>10</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>27</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>10</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-		</dict>
-		<key>../lib/devices/Dgs_3100_24tg.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>16</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../lib/devices/Dgs_3200_10g.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>13</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
-		</dict>
-		<key>../spec/models/employee_spec.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>4</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>../spec/models/vlan_spec.rb</key>
+		<key>../db/migrate/20120201131412_add_in_stock_to_services.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -416,30 +336,30 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>../lib/devices/Des_3010g.rb</string>
-		<string>../lib/devices/Des_3028.rb</string>
-		<string>../lib/devices/Des_3028g.rb</string>
-		<string>../lib/devices/Des_3028p.rb</string>
-		<string>../lib/devices/Dgs_3100_24tg.rb</string>
-		<string>../lib/devices/Dgs_3200_10g.rb</string>
-		<string>../app/admin/employees.rb</string>
+		<string>../app/admin/orders.rb</string>
+		<string>../app/admin/services.rb</string>
+		<string>../app/models/service.rb</string>
+		<string>../db/migrate/20120201131412_add_in_stock_to_services.rb</string>
 		<string>../app/models/host.rb</string>
-		<string>../db/migrate/20120124122322_create_table_links.rb</string>
-		<string>../db/migrate/20120125174639_create_links.rb</string>
-		<string>../app/models/link.rb</string>
-		<string>../app/models/housing.rb</string>
-		<string>../app/models/port.rb</string>
-		<string>../app/models/phone.rb</string>
-		<string>../app/admin/housings.rb</string>
-		<string>../spec/models/vlan_spec.rb</string>
-		<string>../app/models/building.rb</string>
-		<string>../spec/models/employee_spec.rb</string>
-		<string>../app/models/region.rb</string>
-		<string>../app/models/employee.rb</string>
+		<string>../app/admin/hosts.rb</string>
+		<string>../app/controllers/application_controller.rb</string>
+		<string>../app/mailers/otrs_mailer.rb</string>
+		<string>../app/views/otrs_mailer/send_new_order.html.erb</string>
+		<string>../db/migrate/20120201095723_change_order_due_date.rb</string>
+		<string>../config/locales/ru.yml</string>
+		<string>../config/locales/time.ru.yml</string>
+		<string>../app/models/order.rb</string>
+		<string>../app/admin/clients.rb</string>
+		<string>../app/admin/employees.rb</string>
+		<string>../app/admin/phones.rb</string>
+		<string>../db/migrate/20120131133827_change_order_columns.rb</string>
+		<string>../Gemfile</string>
+		<string>../config/routes.rb</string>
+		<string>../Rakefile</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{4, 79}, {1069, 699}}</string>
+	<string>{{4, 0}, {978, 778}}</string>
 </dict>
 </plist>

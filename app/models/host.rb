@@ -50,12 +50,11 @@ class Host < ActiveRecord::Base
       self.mac.downcase! if self.mac
   end
   
-  def update_information
-  
+  def update_information  
     if self.new_record? || self.hostname_changed?
       update_device_type
 #      update_device_mac
-      update_device_firmware
+#      update_device_firmware
       setup
     end
   end

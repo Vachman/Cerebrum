@@ -64,7 +64,7 @@ ActiveAdmin.register Order do
 			  i.input :_destroy, :as => :boolean, :label => "Удалить" 
 			  i.input :service, :label => "услуга", :as => :select,	:collection => Service.all
 		  else 
-		    i.input :service, :label => "Категория", :input_html => { :onchange => 'get_services(this)' } ,:as => :select, :collection => ServiceCategory.all
+		    i.input :service, :label => "Категория", :input_html => { :class => 'category_select' } ,:as => :select, :collection => ServiceCategory.all
 	      i.input :service, :label => "услуга", :as => :select, :collection => Service.where('in_stock = ?', '1'), :group_by => :service_category, :input_html => { :class => 'service_select' } 
 	    end
 		end

@@ -8,9 +8,6 @@ ActiveAdmin.register Order do
 	scope :all
 	
 	filter :due_date, :label => "Дата подключения"
-=begin
-	TODO сделать чтоб можно было фильтровать по услугам
-=end
  
 	index do
 		column "Клиент" do |order|
@@ -61,10 +58,10 @@ ActiveAdmin.register Order do
 		end	
 	  f.has_many :order_services do |i|
   	#	  unless i.object.id.nil?
-  	#		  i.input :_destroy, :as => :boolean, :label => "Удалить" 
-  	#		  i.input :service, :label => "услуга", :as => :select,	:collection => Service.all
+  			  i.input :_destroy, :as => :boolean, :label => "Удалить" 
+  			  i.input :service, :label => "услуга", :as => :select,	:collection => Service.all
   	#	  else 
-  	#	    i.input :service, :label => "Категория", :input_html => { :class => '' } ,:as => :select, :collection => ServiceCategory.all
+  	#      i.input :service, :label => "Категория", :input_html => { :class => '' } ,:as => :select, :collection => ServiceCategory.all
   	#     i.input :service, :label => "услуга", :as => :select, :collection => Service.where('in_stock = ?', '1'), :group_by => :service_category, :input_html => { :class => 'service_select' } 
   	#    end
 		end

@@ -33,7 +33,7 @@ ActiveAdmin.register Order do
 			end
 		end		 
 		panel "Услуги" do	 
-			table_for order.services do |t|
+			table_for order.services.order('service_category_id desc') do |t|
 				t.column("Услуга") { |service| service.name }
 				t.column("Цена") { |service| service.price.to_s+' руб.' }
 				t.column("Категория") { |service| service.service_category.name }

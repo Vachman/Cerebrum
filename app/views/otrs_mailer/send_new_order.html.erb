@@ -15,9 +15,9 @@
 			<th>Цена</th>
   		<th>Услуга</th>
 		</tr>
-  	<% @order.services.order("category desc").each do |service| %>
+  	<% @order.services.order("service_category_id desc").each do |service| %>
 			<tr>
-				<td><%= service.category %></td>
+				<td><%= service.service_category %></td>
 				<td><%= service.price.to_s+' руб.' %></td>
 				<td><%= service.name %></td>
 			</tr>

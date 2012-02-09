@@ -28,7 +28,7 @@ ActiveAdmin.register Service do
        attributes_table_for service do
           row("Название") { service.name } 
           row("Цена") { service.price.to_s+' руб.' }
-          row("Категория") { service.category } 
+          row("Категория") { service.service_category } 
           row("Состояние") { status_tag service.status_name, service.status_tag }
        end
     end
@@ -38,7 +38,7 @@ ActiveAdmin.register Service do
     f.inputs "Детали" do
       f.input :in_stock, :label => 'Доступен', :as => :boolean
       f.input :service_category, :label => "Категория", :as => :select, :collection => ServiceCategory.all 
-      f.input :category, :label => "Категория",  :as => :select, :collection => [ "Интернет", "Телефония", "Телевидение", "Установка"] 
+    #  f.input :category, :label => "Категория",  :as => :select, :collection => [ "Интернет", "Телефония", "Телевидение", "Установка"] 
       f.input :name, :label => "Название" 
       f.input :price, :label => "Стоимость" 
     end

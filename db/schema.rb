@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202142307) do
+ActiveRecord::Schema.define(:version => 20120209095758) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -235,7 +235,6 @@ ActiveRecord::Schema.define(:version => 20120202142307) do
     t.decimal  "price",               :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category"
     t.string   "in_stock"
     t.integer  "service_category_id"
   end

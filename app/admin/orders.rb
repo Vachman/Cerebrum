@@ -36,10 +36,10 @@ ActiveAdmin.register Order do
 			end
 		end		 
 		panel "Услуги" do	 
-			table_for order.services.order("category desc") do |t|
+			table_for order.services do |t|
 				t.column("Услуга") { |service| service.name }
 				t.column("Цена") { |service| service.price.to_s+' руб.' }
-				t.column("Категория") { |service| service.category }
+				t.column("Категория") { |service| service.service_category.name }
 			end
 			attributes_table_for order do
 				row("ИТОГО:") { order.services.sum(:price).to_s+' руб.' }
@@ -59,16 +59,14 @@ ActiveAdmin.register Order do
 			f.input :due_time, :label => "Время подключения", :as => :time
 			f.input :status, :label => "Состояние" ,:as => :select, :collection => ["Новый", "Обработан", "Завершен"], :selected => ( f.object.status.nil? ? "Новый" : f.object.status ), :include_blank => false
 		end	
-		unless f.object.order_services.empty?		
-	  	f.has_many :order_services do |i|
+	  f.has_many :order_services do |i|
   	#	  unless i.object.id.nil?
-  			  i.input :_destroy, :as => :boolean, :label => "Удалить" 
-  			  i.input :service, :label => "услуга", :as => :select,	:collection => Service.all
+  	#		  i.input :_destroy, :as => :boolean, :label => "Удалить" 
+  	#		  i.input :service, :label => "услуга", :as => :select,	:collection => Service.all
   	#	  else 
-  	#	    i.input :service, :label => "Категория", :input_html => { :class => ' ' } ,:as => :select, :collection => ServiceCategory.all
+  	#	    i.input :service, :label => "Категория", :input_html => { :class => '' } ,:as => :select, :collection => ServiceCategory.all
   	#     i.input :service, :label => "услуга", :as => :select, :collection => Service.where('in_stock = ?', '1'), :group_by => :service_category, :input_html => { :class => 'service_select' } 
   	#    end
-      end
 		end
 		f.buttons
 	end

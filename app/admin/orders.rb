@@ -59,7 +59,7 @@ ActiveAdmin.register Order do
 			f.input :due_time, :label => "Время подключения", :as => :time
 			f.input :status, :label => "Состояние" ,:as => :select, :collection => ["Новый", "Обработан", "Завершен"], :selected => ( f.object.status.nil? ? "Новый" : f.object.status ), :include_blank => false
 		end			
-	#	f.has_many :order_services do |i|
+		f.has_many :order_services do |i|
 	#	  unless i.object.id.nil?
 	#		  i.input :_destroy, :as => :boolean, :label => "Удалить" 
 	#		  i.input :service, :label => "услуга", :as => :select,	:collection => Service.all
@@ -67,7 +67,7 @@ ActiveAdmin.register Order do
 	#	    i.input :service, :label => "Категория", :input_html => { :class => ' ' } ,:as => :select, :collection => ServiceCategory.all
 	#     i.input :service, :label => "услуга", :as => :select, :collection => Service.where('in_stock = ?', '1'), :group_by => :service_category, :input_html => { :class => 'service_select' } 
 	#    end
-	#	end
+		end
 		f.buttons
 	end
 	
